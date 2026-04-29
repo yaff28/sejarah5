@@ -1,0 +1,2594 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🌸 日本 — Negeri Matahari Terbit</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Quicksand:wght@400;500;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sakura:    #FFB7C5;
+  --sakura2:   #FF87A2;
+  --sakura3:   #FF4D76;
+  --pink-soft: #FFF0F5;
+  --pink-mid:  #FFD6E4;
+  --pink-deep: #E8607A;
+  --cream:     #FFF8FB;
+  --white:     #FFFFFF;
+  --gold:      #D4926A;
+  --gold2:     #F7C59F;
+  --green:     #7DB3A0;
+  --ink:       #3D1A24;
+  --ink2:      #6B3346;
+  --gray:      #9B7080;
+  --shadow:    rgba(230,100,130,0.15);
+}
+
+*{ margin:0; padding:0; box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+
+body{
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'Quicksand', sans-serif;
+  overflow-x: hidden;
+}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar{ width:5px; }
+::-webkit-scrollbar-track{ background:#1a0810; }
+::-webkit-scrollbar-thumb{ background:linear-gradient(180deg,var(--sakura2),var(--sakura3)); border-radius:3px; }
+* { scrollbar-width:thin; scrollbar-color:var(--sakura3) #1a0810; }
+
+/* ── LOADER ── */
+#loader{
+  position:fixed; inset:0; z-index:9999;
+  background:linear-gradient(135deg, #FFF0F5 0%, #FFD6E4 50%, #FFF0F5 100%);
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:20px;
+  transition:opacity 0.8s ease;
+}
+.loader-flower{ font-size:80px; animation:spinBounce 1.5s ease-in-out infinite; }
+.loader-title{ font-family:'Dancing Script',cursive; font-size:36px; color:var(--sakura3); }
+.loader-sub{ font-size:12px; letter-spacing:6px; color:var(--ink2); text-transform:uppercase; }
+.loader-bar{ width:220px; height:4px; background:rgba(255,183,197,0.3); border-radius:4px; overflow:hidden; }
+.loader-fill{ height:100%; background:linear-gradient(90deg,var(--sakura),var(--sakura3),var(--gold)); border-radius:4px; animation:loadAnim 2s ease forwards; }
+@keyframes loadAnim{ from{width:0} to{width:100%} }
+@keyframes spinBounce{ 0%,100%{transform:scale(1) rotate(0deg)} 50%{transform:scale(1.15) rotate(10deg)} }
+
+/* ── SAKURA PETALS ── */
+#sakura-wrap{ position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden; }
+.petal{ position:absolute; opacity:0; animation:petalFall linear infinite; }
+.petal svg{ display:block; }
+@keyframes petalFall{
+  0%{ transform:translateY(-40px) rotate(0deg) translateX(0); opacity:0.9; }
+  100%{ transform:translateY(110vh) rotate(720deg) translateX(80px); opacity:0; }
+}
+
+/* ── HAMBURGER MENU ── */
+.nav-hamburger{
+  display:none; flex-direction:column; gap:5px;
+  background:none; border:none; cursor:pointer; padding:4px;
+}
+.nav-hamburger span{
+  display:block; width:24px; height:2px;
+  background:var(--ink2); border-radius:2px;
+  transition:all 0.3s;
+}
+.nav-hamburger.open span:nth-child(1){ transform:rotate(45deg) translate(5px,5px); }
+.nav-hamburger.open span:nth-child(2){ opacity:0; }
+.nav-hamburger.open span:nth-child(3){ transform:rotate(-45deg) translate(5px,-5px); }
+
+/* ── NAV ── */
+nav{
+  position:fixed; top:0; left:0; right:0; z-index:100;
+  background:rgba(255,240,245,0.96);
+  backdrop-filter:blur(20px);
+  border-bottom:2px solid var(--pink-mid);
+  padding:0 32px;
+  display:flex; align-items:center; justify-content:space-between;
+  height:62px;
+  box-shadow:0 4px 20px var(--shadow);
+}
+.nav-logo{
+  font-family:'Dancing Script',cursive;
+  font-size:26px; color:var(--sakura3);
+  display:flex; align-items:center; gap:8px;
+  flex-shrink:0;
+}
+.nav-logo span{ font-size:22px; }
+.nav-links{ display:flex; gap:4px; list-style:none; flex-wrap:wrap; }
+.nav-links a{
+  color:var(--ink2);
+  text-decoration:none;
+  font-size:11px; font-weight:600;
+  letter-spacing:1px;
+  padding:6px 12px;
+  border-radius:20px;
+  border:1.5px solid transparent;
+  transition:all 0.3s;
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+.nav-links a:hover{ border-color:var(--sakura2); background:var(--pink-mid); color:var(--ink); }
+.nav-progress{ position:absolute; bottom:0; left:0; height:3px; background:linear-gradient(90deg,var(--sakura),var(--sakura3)); transition:width 0.2s ease; }
+
+/* ── MOBILE NAV ── */
+@media(max-width:900px){
+  .nav-hamburger{ display:flex; }
+  .nav-links{
+    display:none;
+    position:fixed;
+    top:62px; left:0; right:0;
+    background:rgba(255,240,245,0.98);
+    backdrop-filter:blur(20px);
+    flex-direction:column; gap:0;
+    padding:16px 0;
+    border-bottom:2px solid var(--pink-mid);
+    box-shadow:0 8px 30px var(--shadow);
+  }
+  .nav-links.open{ display:flex; }
+  .nav-links li{ width:100%; }
+  .nav-links a{
+    display:block; padding:12px 24px;
+    font-size:13px; border-radius:0;
+    border:none; border-bottom:1px solid var(--pink-mid);
+  }
+  .nav-links a:hover{ background:var(--pink-mid); }
+}
+
+/* ── HERO ── */
+#hero{
+  position:relative; min-height:100vh;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  text-align:center; overflow:hidden; padding-top:62px;
+  background:linear-gradient(160deg, #FFF0F5 0%, #FFD6E4 40%, #FFF8FB 70%, #FFE8F0 100%);
+  padding-left:20px; padding-right:20px;
+}
+.hero-circles{ position:absolute; inset:0; overflow:hidden; }
+.hero-circle{
+  position:absolute; border-radius:50%;
+  background:radial-gradient(circle, rgba(255,183,197,0.3), transparent 70%);
+  animation:floatCircle 8s ease-in-out infinite;
+}
+@keyframes floatCircle{ 0%,100%{transform:translateY(0) scale(1)} 50%{transform:translateY(-20px) scale(1.05)} }
+.hero-kanji-bg{
+  position:absolute; font-size:30vw; opacity:0.04;
+  color:var(--sakura3); font-family:'Noto Serif JP',serif;
+  top:50%; left:50%; transform:translate(-50%,-50%);
+  pointer-events:none; user-select:none;
+  animation:slowRotate 30s linear infinite;
+}
+@keyframes slowRotate{ from{transform:translate(-50%,-50%) rotate(0deg)} to{transform:translate(-50%,-50%) rotate(360deg)} }
+
+.hero-tag{
+  font-size:11px; letter-spacing:8px; color:var(--gray);
+  text-transform:uppercase; margin-bottom:20px;
+  animation:fadeUp 1s ease 0.3s both; font-weight:600;
+}
+.hero-kanji{
+  font-size:clamp(70px,14vw,180px);
+  color:var(--sakura3);
+  text-shadow:0 0 60px rgba(255,77,118,0.25), 0 4px 20px rgba(255,77,118,0.15);
+  line-height:1;
+  animation:fadeUp 1s ease 0.5s both;
+  font-family:'Noto Serif JP',serif; font-weight:300;
+  position:relative; z-index:1;
+}
+.hero-title{
+  font-family:'Dancing Script',cursive;
+  font-size:clamp(26px,5vw,58px);
+  color:var(--ink); margin-top:8px;
+  animation:fadeUp 1s ease 0.7s both;
+}
+.hero-subtitle{
+  font-size:13px; color:var(--ink2);
+  letter-spacing:3px; margin-top:12px;
+  animation:fadeUp 1s ease 0.9s both; font-weight:600;
+}
+.hero-line{
+  width:180px; height:3px; margin:28px auto;
+  background:linear-gradient(90deg,transparent,var(--sakura2),var(--sakura3),transparent);
+  border-radius:2px;
+  animation:fadeUp 1s ease 1.1s both;
+}
+.hero-text{
+  font-size:15px; line-height:1.9; max-width:580px;
+  color:var(--ink2); animation:fadeUp 1s ease 1.3s both;
+}
+.hero-btns{ display:flex; gap:14px; margin-top:36px; animation:fadeUp 1s ease 1.5s both; flex-wrap:wrap; justify-content:center; }
+.btn-pink{
+  padding:13px 30px; background:linear-gradient(135deg,var(--sakura2),var(--sakura3));
+  color:white; border:none; cursor:pointer;
+  font-family:'Quicksand',sans-serif; font-size:12px; font-weight:700;
+  letter-spacing:2px; text-transform:uppercase; text-decoration:none;
+  border-radius:30px; transition:all 0.3s;
+  box-shadow:0 6px 20px rgba(255,77,118,0.3);
+  display:inline-flex; align-items:center; gap:6px;
+}
+.btn-pink:hover{ transform:translateY(-3px); box-shadow:0 10px 30px rgba(255,77,118,0.45); }
+.btn-outline{
+  padding:13px 30px; background:transparent;
+  color:var(--sakura3); border:2px solid var(--sakura2);
+  cursor:pointer; font-family:'Quicksand',sans-serif; font-size:12px; font-weight:700;
+  letter-spacing:2px; text-transform:uppercase; text-decoration:none;
+  border-radius:30px; transition:all 0.3s;
+  display:inline-flex; align-items:center; gap:6px;
+}
+.btn-outline:hover{ background:var(--pink-mid); transform:translateY(-3px); }
+
+.hero-stats{
+  display:flex; gap:40px; margin-top:50px;
+  animation:fadeUp 1s ease 1.7s both;
+  flex-wrap:wrap; justify-content:center;
+}
+.hero-stat{ text-align:center; }
+.hero-stat-num{ font-family:'Dancing Script',cursive; font-size:36px; color:var(--sakura3); }
+.hero-stat-lbl{ font-size:10px; letter-spacing:3px; color:var(--gray); text-transform:uppercase; font-weight:600; }
+
+.scroll-down{
+  position:absolute; bottom:28px;
+  display:flex; flex-direction:column; align-items:center; gap:6px;
+  animation:bounceDown 2s ease infinite;
+}
+.scroll-down span{ font-size:9px; letter-spacing:4px; color:var(--gray); font-weight:600; text-transform:uppercase; }
+.scroll-down .arr{ font-size:22px; color:var(--sakura2); }
+@keyframes bounceDown{ 0%,100%{transform:translateY(0)} 50%{transform:translateY(8px)} }
+@keyframes fadeUp{ from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+
+/* ── SECTION COMMON ── */
+section{ position:relative; z-index:1; padding:90px 40px; }
+.section-header{ text-align:center; margin-bottom:60px; }
+.eyebrow{
+  display:inline-block;
+  font-size:10px; letter-spacing:5px; text-transform:uppercase; font-weight:700;
+  color:white; background:linear-gradient(135deg,var(--sakura2),var(--sakura3));
+  padding:6px 18px; border-radius:20px; margin-bottom:18px;
+}
+.sec-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(26px,5vw,46px); color:var(--ink);
+  line-height:1.2;
+}
+.sec-title .jp{ color:var(--sakura3); font-style:italic; font-size:0.6em; display:block; margin-top:6px; }
+.sec-line{
+  width:80px; height:3px; margin:18px auto 0;
+  background:linear-gradient(90deg,var(--sakura2),var(--sakura3));
+  border-radius:2px;
+}
+
+/* ── CARDS ── */
+.card{
+  background:white; border-radius:20px;
+  border:2px solid var(--pink-mid);
+  padding:30px; transition:all 0.4s;
+  box-shadow:0 4px 20px var(--shadow);
+  cursor:pointer;
+}
+.card:hover{ transform:translateY(-6px); box-shadow:0 14px 40px rgba(230,100,130,0.2); border-color:var(--sakura2); }
+
+/* ── OVERVIEW ── */
+#overview{ background:white; }
+.topics-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px; max-width:1100px; margin:0 auto; }
+.topic-card{
+  background:linear-gradient(160deg, var(--cream) 0%, var(--pink-soft) 100%);
+  border:2px solid var(--pink-mid); border-radius:20px;
+  padding:30px 24px; cursor:pointer; transition:all 0.4s;
+  text-decoration:none; display:block; position:relative; overflow:hidden;
+}
+.topic-card::before{
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(135deg,rgba(255,135,162,0.1),transparent);
+  opacity:0; transition:opacity 0.4s;
+}
+.topic-card:hover{ transform:translateY(-8px); border-color:var(--sakura2); box-shadow:0 14px 40px var(--shadow); }
+.topic-card:hover::before{ opacity:1; }
+.topic-icon{ font-size:44px; margin-bottom:14px; display:block; transition:transform 0.3s; }
+.topic-card:hover .topic-icon{ transform:scale(1.15) rotate(-5deg); }
+.topic-num{ font-size:9px; letter-spacing:4px; color:var(--sakura3); text-transform:uppercase; font-weight:700; margin-bottom:6px; }
+.topic-name{ font-family:'Playfair Display',serif; font-size:17px; color:var(--ink); margin-bottom:8px; }
+.topic-desc{ font-size:11px; color:var(--gray); line-height:1.7; font-weight:500; }
+
+/* ── FUN FACTS TICKER ── */
+.ticker-wrap{
+  background:linear-gradient(135deg,var(--sakura2),var(--sakura3));
+  padding:14px 0; overflow:hidden; white-space:nowrap;
+  position:relative; z-index:1;
+}
+.ticker-inner{ display:inline-block; animation:ticker 35s linear infinite; }
+.ticker-item{ display:inline-block; margin:0 40px; color:white; font-size:13px; font-weight:600; letter-spacing:1px; }
+.ticker-item::before{ content:'🌸 '; }
+@keyframes ticker{ from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+/* ── IMAGE BOX ── */
+.img-box{
+  width:100%; border-radius:16px; overflow:hidden;
+  border:2px dashed var(--sakura);
+  background:linear-gradient(135deg,var(--pink-soft),var(--pink-mid));
+  position:relative; cursor:pointer;
+  transition:all 0.3s;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+}
+.img-box:hover{ border-color:var(--sakura3); box-shadow:0 8px 24px var(--shadow); }
+.img-box img{
+  width:100%; height:100%;
+  object-fit:cover; display:block;
+  border-radius:14px;
+}
+.img-box-placeholder{
+  padding:32px 20px; text-align:center;
+}
+.img-box-icon{ font-size:40px; margin-bottom:8px; opacity:0.5; }
+.img-box-label{
+  font-size:10px; letter-spacing:3px; text-transform:uppercase;
+  color:var(--sakura3); font-weight:700;
+  margin-bottom:4px;
+}
+.img-box-hint{
+  font-size:10px; color:var(--gray); line-height:1.6;
+  font-weight:500;
+}
+.img-box-input{
+  position:absolute; inset:0; opacity:0; cursor:pointer;
+}
+
+/* ── SEJARAH ── */
+#sejarah{ background:linear-gradient(180deg, var(--pink-soft) 0%, white 100%); }
+.history-intro{ max-width:650px; margin:0 auto 50px; text-align:center; font-size:14px; line-height:2; color:var(--ink2); }
+.history-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; max-width:1100px; margin:0 auto; }
+.history-card{
+  background:white; border:2px solid var(--pink-mid); border-radius:20px;
+  padding:28px; transition:all 0.4s; box-shadow:0 4px 15px var(--shadow); cursor:pointer;
+}
+.history-card:hover{ transform:translateY(-6px); border-color:var(--sakura2); box-shadow:0 14px 40px rgba(230,100,130,0.2); }
+
+/* ── TIMELINE ── */
+#geopolitik{ background:white; padding-bottom:100px; }
+.timeline-wrap{ max-width:960px; margin:0 auto; position:relative; padding:0 20px; }
+.timeline-spine{
+  position:absolute; left:50%; transform:translateX(-50%);
+  top:0; bottom:0; width:3px;
+  background:linear-gradient(180deg,var(--sakura2),var(--sakura3),var(--gold),var(--sakura2));
+  border-radius:3px;
+}
+
+/* Desktop timeline: proper left-right alternating */
+.period-item{
+  display:grid;
+  grid-template-columns:1fr 60px 1fr;
+  gap:0 28px;
+  margin-bottom:64px;
+  align-items:start;
+}
+/* Odd items: content LEFT, dot CENTER, empty RIGHT */
+.period-item:nth-child(odd) .period-content{ grid-column:1; grid-row:1; }
+.period-item:nth-child(odd) .period-dot-col{ grid-column:2; grid-row:1; }
+.period-item:nth-child(odd) .period-empty{ grid-column:3; grid-row:1; }
+/* Even items: empty LEFT, dot CENTER, content RIGHT */
+.period-item:nth-child(even) .period-empty{ grid-column:1; grid-row:1; }
+.period-item:nth-child(even) .period-dot-col{ grid-column:2; grid-row:1; }
+.period-item:nth-child(even) .period-content{ grid-column:3; grid-row:1; }
+
+.period-dot-col{ display:flex; align-items:flex-start; justify-content:center; padding-top:22px; }
+.period-dot{
+  width:24px; height:24px;
+  background:linear-gradient(135deg,var(--sakura2),var(--sakura3));
+  border:4px solid white; border-radius:50%;
+  box-shadow:0 0 0 3px var(--sakura2), 0 4px 15px rgba(255,77,118,0.4);
+  cursor:pointer; transition:all 0.3s; position:relative; z-index:2; flex-shrink:0;
+}
+.period-dot:hover{ transform:scale(1.4); box-shadow:0 0 0 5px var(--sakura),0 6px 20px rgba(255,77,118,0.6); }
+.period-content{
+  background:white; border:2px solid var(--pink-mid); border-radius:20px;
+  padding:28px; cursor:pointer; transition:all 0.4s;
+  box-shadow:0 4px 20px var(--shadow);
+}
+.period-content:hover{ border-color:var(--sakura2); transform:scale(1.02); box-shadow:0 10px 30px rgba(230,100,130,0.2); }
+.period-num{ font-size:9px; letter-spacing:4px; color:var(--sakura3); text-transform:uppercase; font-weight:700; margin-bottom:6px; }
+.period-era{ font-family:'Playfair Display',serif; font-size:20px; color:var(--ink); margin-bottom:4px; }
+.period-years{ font-size:12px; color:var(--gold); font-weight:700; margin-bottom:12px; letter-spacing:2px; }
+.period-tagline{ font-size:12px; color:var(--ink2); font-style:italic; margin-bottom:14px; line-height:1.7; }
+.period-keywords{ margin-top:12px; display:flex; flex-wrap:wrap; gap:6px; }
+.period-keyword{
+  background:var(--pink-soft); border:1.5px solid var(--sakura);
+  color:var(--sakura3); font-size:10px; padding:3px 10px; border-radius:12px;
+  font-weight:600; letter-spacing:1px;
+}
+.period-detail{
+  display:none; margin-top:16px; padding-top:16px;
+  border-top:2px dashed var(--pink-mid);
+  font-size:13px; line-height:1.9; color:var(--ink2);
+}
+.period-content.open .period-detail{ display:block; }
+.period-detail strong{ color:var(--sakura3); }
+.period-detail em{ color:var(--gold); font-style:normal; font-weight:700; }
+.period-toggle-hint{
+  font-size:9px; letter-spacing:2px; text-transform:uppercase;
+  color:var(--gray); margin-top:10px; font-weight:600;
+  display:flex; align-items:center; gap:4px;
+}
+
+/* ── BUDAYA ── */
+#budaya{ background:linear-gradient(180deg, var(--pink-soft) 0%, white 100%); }
+.culture-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:24px; max-width:1100px; margin:0 auto; }
+.culture-card{
+  background:white; border:2px solid var(--pink-mid); border-radius:24px;
+  padding:32px; transition:all 0.4s; box-shadow:0 4px 20px var(--shadow);
+}
+.culture-card:hover{ transform:translateY(-8px); border-color:var(--sakura2); box-shadow:0 14px 40px rgba(230,100,130,0.2); }
+.culture-icon{ font-size:50px; margin-bottom:14px; display:block; }
+.culture-sub{ font-size:9px; letter-spacing:4px; text-transform:uppercase; color:var(--sakura3); font-weight:700; margin-bottom:6px; }
+.culture-title{ font-family:'Playfair Display',serif; font-size:20px; color:var(--ink); margin-bottom:14px; }
+.culture-points{ list-style:none; display:flex; flex-direction:column; gap:8px; }
+.culture-points li{ font-size:12px; color:var(--ink2); display:flex; align-items:flex-start; gap:8px; line-height:1.6; font-weight:500; }
+.culture-points li::before{ content:'🌸'; font-size:12px; flex-shrink:0; margin-top:1px; }
+
+/* ── EKONOMI ── */
+#ekonomi{ background:white; }
+.ekon-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:20px; max-width:1100px; margin:0 auto; }
+.ekon-card{
+  background:linear-gradient(160deg, var(--cream), var(--pink-soft));
+  border:2px solid var(--pink-mid); border-radius:20px; padding:28px;
+  transition:all 0.4s; box-shadow:0 4px 15px var(--shadow);
+}
+.ekon-card:hover{ transform:translateY(-6px); border-color:var(--sakura2); }
+.ekon-icon{ font-size:38px; margin-bottom:12px; }
+.ekon-label{ font-size:9px; letter-spacing:4px; color:var(--sakura3); text-transform:uppercase; font-weight:700; margin-bottom:8px; }
+.ekon-value{ font-family:'Playfair Display',serif; font-size:22px; color:var(--ink); margin-bottom:10px; line-height:1.3; }
+.ekon-desc{ font-size:12px; color:var(--ink2); line-height:1.8; font-weight:500; }
+
+/* ── GEOGRAFIS ── */
+#geografis{ background:linear-gradient(180deg, var(--pink-soft), white); }
+.geo-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:20px; max-width:1100px; margin:0 auto; }
+.geo-card{
+  background:white; border:2px solid var(--pink-mid); border-radius:20px;
+  padding:28px; transition:all 0.4s; box-shadow:0 4px 15px var(--shadow);
+}
+.geo-card:hover{ border-color:var(--gold2); box-shadow:0 10px 30px rgba(212,146,106,0.2); transform:translateY(-4px); }
+.geo-label{ font-size:9px; letter-spacing:4px; color:var(--gold); text-transform:uppercase; font-weight:700; margin-bottom:8px; }
+.geo-value{ font-family:'Playfair Display',serif; font-size:18px; color:var(--ink); margin-bottom:10px; line-height:1.3; }
+.geo-desc{ font-size:12px; line-height:1.8; color:var(--ink2); font-weight:500; }
+.geo-stats{ display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:16px; max-width:800px; margin:50px auto 0; }
+.geo-stat{
+  text-align:center; padding:24px; border-radius:20px;
+  background:linear-gradient(135deg,var(--pink-soft),white);
+  border:2px solid var(--pink-mid); box-shadow:0 4px 15px var(--shadow);
+  transition:all 0.3s;
+}
+.geo-stat:hover{ transform:scale(1.03); border-color:var(--sakura2); }
+.geo-stat-num{ font-family:'Dancing Script',cursive; font-size:38px; color:var(--sakura3); display:block; margin-bottom:4px; }
+.geo-stat-lbl{ font-size:10px; letter-spacing:3px; color:var(--gray); text-transform:uppercase; font-weight:600; }
+
+/* ── WISATA ── */
+#wisata{ background:white; }
+.wisata-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:24px; max-width:1200px; margin:0 auto; }
+.wisata-card{
+  background:white;
+  border:2px solid var(--pink-mid); border-radius:24px; overflow:hidden;
+  transition:all 0.4s; cursor:pointer; box-shadow:0 4px 15px var(--shadow);
+  display:flex; flex-direction:column;
+}
+.wisata-card:hover{ transform:translateY(-8px); box-shadow:0 16px 40px var(--shadow); border-color:var(--sakura2); }
+/* Image area for wisata */
+.wisata-img{
+  width:100%; height:230px;
+  background:transparent;
+  border-bottom:none;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  position:relative; overflow:hidden; cursor:pointer;
+  transition:background 0.3s;
+}
+.wisata-img.has-image{ background:transparent; border-bottom:none; }
+.wisata-img img{ width:100%; height:100%; object-fit:cover; display:block; }
+.wisata-img-placeholder{ text-align:center; }
+.wisata-img-placeholder .ph-icon{ font-size:50px; opacity:0.6; display:block; margin-bottom:8px; }
+.wisata-img-placeholder .ph-text{ font-size:9px; letter-spacing:3px; color:var(--sakura3); font-weight:700; text-transform:uppercase; }
+.wisata-img-placeholder .ph-hint{ font-size:9px; color:var(--gray); margin-top:4px; }
+.wisata-img input[type="file"]{ position:absolute; inset:0; opacity:0; cursor:pointer; }
+.wisata-body{ padding:24px 24px 28px; flex:1; }
+.wisata-name{ font-family:'Playfair Display',serif; font-size:20px; color:var(--ink); margin-bottom:6px; }
+.wisata-loc{ font-size:10px; letter-spacing:3px; color:var(--sakura3); text-transform:uppercase; font-weight:700; margin-bottom:10px; }
+.wisata-desc{ font-size:12px; color:var(--ink2); line-height:1.8; font-weight:500; }
+.wisata-tag{
+  display:inline-block; margin-top:12px;
+  background:var(--pink-soft); border:1.5px solid var(--sakura);
+  color:var(--sakura3); font-size:10px; padding:4px 12px; border-radius:12px; font-weight:600;
+}
+
+/* ── TEKNOLOGI ── */
+#teknologi{ background:linear-gradient(180deg, var(--pink-soft), white); }
+.tech-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:20px; max-width:1100px; margin:0 auto; }
+.tech-card{
+  background:white; border:2px solid var(--pink-mid); border-radius:20px;
+  padding:28px; transition:all 0.4s; box-shadow:0 4px 15px var(--shadow);
+}
+.tech-card:hover{ transform:translateY(-6px); border-color:var(--sakura2); }
+.tech-icon{ font-size:40px; margin-bottom:12px; }
+.tech-label{ font-size:9px; letter-spacing:4px; color:var(--green); text-transform:uppercase; font-weight:700; margin-bottom:8px; }
+.tech-name{ font-family:'Playfair Display',serif; font-size:18px; color:var(--ink); margin-bottom:10px; line-height:1.3; }
+.tech-desc{ font-size:12px; color:var(--ink2); line-height:1.8; font-weight:500; }
+.tech-bar{ margin-top:14px; }
+.tech-bar-label{ display:flex; justify-content:space-between; font-size:10px; color:var(--gray); margin-bottom:5px; font-weight:600; }
+.tech-bar-track{ height:6px; background:var(--pink-soft); border-radius:3px; overflow:hidden; }
+.tech-bar-fill{ height:100%; background:linear-gradient(90deg,var(--sakura2),var(--sakura3)); border-radius:3px; transition:width 1.5s ease; width:0; }
+
+/* ── QUIZ ── */
+#quiz{ background:linear-gradient(160deg,var(--pink-soft) 0%, white 100%); padding-bottom:100px; }
+.quiz-wrap{ max-width:750px; margin:0 auto; }
+.quiz-intro{ text-align:center; font-size:14px; color:var(--ink2); margin-bottom:44px; line-height:1.8; }
+#quiz-start{
+  text-align:center; background:white;
+  border:2px solid var(--pink-mid); border-radius:24px;
+  padding:56px 40px; box-shadow:0 8px 30px var(--shadow);
+}
+.qs-emoji{ font-size:70px; margin-bottom:14px; display:block; }
+.qs-title{ font-family:'Playfair Display',serif; font-size:28px; color:var(--ink); margin-bottom:10px; }
+.qs-sub{ font-size:12px; letter-spacing:3px; color:var(--sakura3); text-transform:uppercase; font-weight:700; margin-bottom:28px; }
+.diff-row{ display:flex; gap:12px; justify-content:center; margin-bottom:28px; flex-wrap:wrap; }
+.diff-btn{
+  padding:10px 24px; font-family:'Quicksand',sans-serif; font-size:11px;
+  font-weight:700; letter-spacing:2px; border-radius:20px; border:2px solid;
+  background:transparent; cursor:pointer; transition:all 0.3s; text-transform:uppercase;
+}
+.diff-btn[data-d="easy"]{ color:#4CAF50; border-color:#4CAF50; }
+.diff-btn[data-d="medium"]{ color:var(--gold); border-color:var(--gold); }
+.diff-btn[data-d="hard"]{ color:var(--sakura3); border-color:var(--sakura3); }
+.diff-btn[data-d="easy"].active{ background:rgba(76,175,80,0.1); }
+.diff-btn[data-d="medium"].active{ background:rgba(212,146,106,0.1); }
+.diff-btn[data-d="hard"].active{ background:rgba(255,77,118,0.1); }
+#quiz-game{ display:none; }
+.quiz-hud{
+  display:flex; justify-content:space-between; align-items:center;
+  margin-bottom:18px; padding:14px 20px;
+  background:white; border:2px solid var(--pink-mid); border-radius:16px;
+  box-shadow:0 4px 15px var(--shadow);
+  gap:8px;
+}
+.hud-item{ text-align:center; flex:1; }
+.hud-lbl{ font-size:8px; letter-spacing:3px; color:var(--gray); text-transform:uppercase; font-weight:700; margin-bottom:4px; }
+.hud-val{ font-family:'Playfair Display',serif; font-size:22px; color:var(--ink); }
+#hud-score{ color:var(--gold); }
+#hud-timer{ color:var(--sakura3); }
+.quiz-prog{ width:100%; height:6px; background:var(--pink-soft); border-radius:3px; overflow:hidden; margin-bottom:24px; }
+.quiz-prog-fill{ height:100%; background:linear-gradient(90deg,var(--sakura2),var(--sakura3)); border-radius:3px; transition:width 0.4s ease; }
+.quiz-qcard{
+  background:white; border:2px solid var(--pink-mid); border-radius:20px;
+  padding:32px; margin-bottom:20px; box-shadow:0 4px 15px var(--shadow);
+}
+.quiz-qnum{ font-size:9px; letter-spacing:4px; color:var(--sakura3); text-transform:uppercase; font-weight:700; margin-bottom:10px; }
+.quiz-qtext{ font-size:16px; line-height:1.7; color:var(--ink); margin-bottom:8px; font-family:'Playfair Display',serif; }
+.quiz-qhint{ font-size:9px; color:var(--gray); letter-spacing:2px; font-weight:600; }
+.quiz-opts{ display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+.quiz-opt{
+  padding:15px 18px; background:var(--pink-soft);
+  border:2px solid var(--pink-mid); border-radius:14px;
+  color:var(--ink); font-size:13px; line-height:1.5;
+  cursor:pointer; transition:all 0.25s; text-align:left;
+  font-family:'Quicksand',sans-serif; font-weight:600;
+}
+.quiz-opt:hover:not(:disabled){ border-color:var(--sakura2); background:var(--pink-mid); }
+.quiz-opt.correct{ border-color:#4CAF50!important; background:rgba(76,175,80,0.1)!important; color:#2e7d32; }
+.quiz-opt.wrong{ border-color:#ef5350!important; background:rgba(239,83,80,0.1)!important; color:#c62828; }
+.quiz-opt:disabled{ cursor:not-allowed; }
+.quiz-feedback{
+  padding:16px 20px; border-left:4px solid var(--sakura2);
+  background:var(--pink-soft); border-radius:0 12px 12px 0;
+  font-size:13px; line-height:1.8; color:var(--ink2);
+  display:none; margin-top:8px; font-weight:500;
+}
+.quiz-next{
+  display:none; margin-top:20px; padding:14px 40px;
+  background:linear-gradient(135deg,var(--sakura2),var(--sakura3));
+  color:white; border:none; cursor:pointer; border-radius:30px;
+  font-family:'Quicksand',sans-serif; font-size:12px; font-weight:700;
+  letter-spacing:2px; text-transform:uppercase; width:100%;
+  box-shadow:0 6px 20px rgba(255,77,118,0.3); transition:all 0.3s;
+}
+.quiz-next:hover{ transform:translateY(-2px); box-shadow:0 10px 30px rgba(255,77,118,0.45); }
+#quiz-result{ display:none; text-align:center; }
+.result-box{
+  background:white; border:2px solid var(--pink-mid); border-radius:24px;
+  padding:56px 40px; box-shadow:0 8px 30px var(--shadow);
+}
+.result-emoji{ font-size:60px; margin-bottom:18px; }
+.result-title{ font-family:'Playfair Display',serif; font-size:28px; color:var(--ink); margin-bottom:14px; }
+.result-score{ font-family:'Dancing Script',cursive; font-size:60px; color:var(--sakura3); margin-bottom:6px; }
+.result-stars{ font-size:32px; margin-bottom:18px; }
+.result-msg{ font-size:13px; color:var(--ink2); line-height:1.8; margin-bottom:28px; }
+.result-breakdown{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; margin-bottom:28px; }
+.rb-item{ background:var(--pink-soft); border:2px solid var(--pink-mid); border-radius:16px; padding:16px; }
+.rb-num{ font-family:'Playfair Display',serif; font-size:26px; color:var(--sakura3); }
+.rb-label{ font-size:9px; letter-spacing:2px; color:var(--gray); margin-top:4px; font-weight:600; }
+
+/* ── WORD GAME ── */
+#wordgame{ background:white; padding-bottom:90px; }
+.wg-wrap{ max-width:700px; margin:0 auto; }
+#wg-start,#wg-play,#wg-result{
+  background:linear-gradient(160deg,var(--cream),var(--pink-soft));
+  border:2px solid var(--pink-mid); border-radius:24px;
+  padding:50px 40px; text-align:center;
+  box-shadow:0 8px 30px var(--shadow);
+}
+#wg-play,#wg-result{ display:none; }
+.wg-title{ font-family:'Playfair Display',serif; font-size:26px; color:var(--ink); margin-bottom:10px; }
+.wg-sub{ font-size:11px; letter-spacing:3px; color:var(--sakura3); text-transform:uppercase; font-weight:700; margin-bottom:22px; }
+.wg-scrambled{
+  font-family:'Dancing Script',cursive; font-size:clamp(32px,6vw,46px);
+  letter-spacing:10px; color:var(--sakura3);
+  margin:28px 0; text-transform:uppercase;
+  word-break:break-all;
+}
+.wg-clue{ font-size:13px; color:var(--ink2); font-style:italic; margin-bottom:22px; line-height:1.7; }
+.wg-input-row{ display:flex; gap:10px; max-width:380px; margin:0 auto 18px; }
+.wg-input{
+  flex:1; padding:13px 16px;
+  background:white; border:2px solid var(--sakura);
+  border-radius:14px; color:var(--ink); font-size:16px;
+  letter-spacing:4px; text-align:center;
+  font-family:'Quicksand',sans-serif; font-weight:700;
+  text-transform:uppercase; outline:none; min-width:0;
+}
+.wg-input:focus{ border-color:var(--sakura3); box-shadow:0 0 0 3px rgba(255,77,118,0.1); }
+.wg-submit{
+  padding:12px 22px; background:linear-gradient(135deg,var(--sakura2),var(--sakura3));
+  color:white; border:none; border-radius:14px; cursor:pointer;
+  font-family:'Quicksand',sans-serif; font-size:12px; font-weight:700;
+  letter-spacing:1px; text-transform:uppercase; transition:all 0.3s; flex-shrink:0;
+}
+.wg-submit:hover{ transform:scale(1.05); }
+.wg-hud{ display:flex; justify-content:space-between; margin-bottom:20px; gap:12px; }
+.wg-hud-box{ flex:1; border:2px solid var(--pink-mid); border-radius:16px; padding:12px 6px; text-align:center; background:white; min-width:0; }
+.wg-hud-num{ font-family:'Playfair Display',serif; font-size:20px; color:var(--sakura3); word-break:break-all; }
+.wg-hud-lbl{ font-size:8px; color:var(--gray); letter-spacing:2px; margin-top:2px; font-weight:600; text-transform:uppercase; }
+.wg-feedback{ min-height:26px; font-size:13px; font-weight:700; margin:6px 0 14px; letter-spacing:1px; }
+.wg-skip{
+  background:transparent; border:2px solid var(--pink-mid);
+  color:var(--gray); font-family:'Quicksand',sans-serif; font-size:10px;
+  font-weight:700; letter-spacing:2px; padding:8px 22px; border-radius:20px;
+  cursor:pointer; transition:all 0.3s; text-transform:uppercase; margin-top:8px;
+}
+.wg-skip:hover{ border-color:var(--sakura2); color:var(--sakura3); }
+.wg-tiles{ display:flex; gap:8px; justify-content:center; flex-wrap:wrap; margin:14px 0; }
+.wg-tile{
+  width:42px; height:42px; background:white; border:2px solid var(--sakura);
+  border-radius:10px; display:flex; align-items:center; justify-content:center;
+  font-family:'Quicksand',sans-serif; font-size:16px; font-weight:700;
+  color:var(--sakura3); cursor:pointer; transition:all 0.2s; user-select:none;
+  flex-shrink:0;
+}
+.wg-tile:hover{ background:var(--pink-mid); transform:translateY(-3px); box-shadow:0 4px 12px var(--shadow); }
+.wg-tile.used{ opacity:0.2; pointer-events:none; }
+
+/* ── KANJI QUIZ ── */
+#kanji-quiz{ background:linear-gradient(180deg, var(--pink-soft), white); }
+.kanji-wrap{ max-width:700px; margin:0 auto; }
+#kq-game{ display:none; }
+#kq-result{ display:none; text-align:center; }
+.kq-card{
+  background:white; border:2px solid var(--pink-mid); border-radius:24px;
+  padding:50px 40px; text-align:center; box-shadow:0 8px 30px var(--shadow);
+}
+.kq-symbol{ font-size:clamp(80px,15vw,120px); color:var(--sakura3); font-family:'Noto Serif JP',serif; margin:10px 0; line-height:1; display:block; }
+.kq-question{ font-size:16px; color:var(--ink2); margin-bottom:30px; font-weight:600; }
+.kq-opts{ display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:20px; }
+.kq-opt{
+  padding:16px; background:var(--pink-soft); border:2px solid var(--pink-mid);
+  border-radius:14px; color:var(--ink); font-size:13px;
+  cursor:pointer; transition:all 0.25s; font-family:'Quicksand',sans-serif; font-weight:600;
+  line-height:1.4;
+}
+.kq-opt:hover:not(:disabled){ border-color:var(--sakura2); background:var(--pink-mid); }
+.kq-opt.correct{ border-color:#4CAF50!important; background:rgba(76,175,80,0.1)!important; color:#2e7d32; }
+.kq-opt.wrong{ border-color:#ef5350!important; background:rgba(239,83,80,0.1)!important; color:#c62828; }
+.kq-progress{ display:flex; justify-content:center; gap:8px; margin-top:20px; flex-wrap:wrap; }
+.kq-dot{ width:10px; height:10px; border-radius:50%; background:var(--pink-mid); transition:all 0.3s; flex-shrink:0; }
+.kq-dot.active{ background:var(--sakura3); transform:scale(1.3); }
+.kq-dot.done-correct{ background:#4CAF50; }
+.kq-dot.done-wrong{ background:#ef5350; }
+
+/* ── MODAL ── */
+.modal-ov{
+  position:fixed; inset:0; z-index:500;
+  background:rgba(61,26,36,0.7); backdrop-filter:blur(10px);
+  display:none; align-items:center; justify-content:center; padding:20px;
+}
+.modal-ov.open{ display:flex; }
+.modal-box{
+  background:white; border:2px solid var(--pink-mid); border-radius:28px;
+  max-width:700px; width:100%; max-height:88vh; overflow-y:auto;
+  padding:50px 44px; position:relative;
+  box-shadow:0 20px 60px rgba(230,100,130,0.25);
+  animation:modalIn 0.4s ease;
+}
+@keyframes modalIn{ from{opacity:0;transform:scale(0.93) translateY(20px)} to{opacity:1;transform:scale(1) translateY(0)} }
+.modal-close{
+  position:absolute; top:18px; right:18px;
+  background:var(--pink-soft); border:2px solid var(--pink-mid);
+  color:var(--sakura3); width:36px; height:36px; border-radius:50%;
+  cursor:pointer; font-size:18px; transition:all 0.3s;
+  display:flex; align-items:center; justify-content:center;
+}
+.modal-close:hover{ background:var(--sakura3); color:white; }
+.modal-eye{ font-size:10px; letter-spacing:4px; color:var(--sakura3); text-transform:uppercase; font-weight:700; margin-bottom:12px; }
+.modal-title{ font-family:'Playfair Display',serif; font-size:26px; color:var(--ink); margin-bottom:18px; line-height:1.3; }
+.modal-body{ font-size:13px; line-height:2; color:var(--ink2); }
+.modal-body p{ margin-bottom:14px; }
+.modal-body strong{ color:var(--sakura3); }
+.modal-divider{ height:2px; background:var(--pink-mid); margin:18px 0; border-radius:2px; }
+
+/* ── BACK TO TOP ── */
+#back-top{
+  position:fixed; bottom:28px; right:28px; z-index:200;
+  width:46px; height:46px; border-radius:50%;
+  background:linear-gradient(135deg,var(--sakura2),var(--sakura3));
+  color:white; border:none; cursor:pointer; font-size:18px;
+  box-shadow:0 6px 20px rgba(255,77,118,0.35);
+  display:none; align-items:center; justify-content:center;
+  transition:all 0.3s; text-decoration:none;
+}
+#back-top.show{ display:flex; }
+#back-top:hover{ transform:translateY(-3px) scale(1.1); }
+
+/* ── FOOTER ── */
+footer{
+  background:linear-gradient(135deg, var(--pink-soft), var(--pink-mid));
+  border-top:3px solid var(--sakura);
+  text-align:center; padding:56px 20px;
+}
+.footer-kanji{ font-size:70px; display:block; margin-bottom:14px; font-family:'Noto Serif JP',serif; color:var(--sakura2); opacity:0.5; }
+.footer-text{ font-size:11px; letter-spacing:4px; color:var(--gray); font-weight:600; text-transform:uppercase; }
+.footer-sakura{ font-size:30px; margin:14px 0; letter-spacing:5px; }
+.footer-credit{ margin-top:10px; font-size:10px; color:var(--gray); letter-spacing:2px; font-weight:500; }
+
+/* ── UTILS ── */
+.fade-in{ opacity:0; transform:translateY(24px); transition:all 0.7s ease; }
+.fade-in.visible{ opacity:1; transform:translateY(0); }
+.text-pink{ color:var(--sakura3); }
+.text-gold{ color:var(--gold); }
+.text-center{ text-align:center; }
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  section{ padding:64px 20px; }
+  /* Timeline: full single column on mobile */
+  .timeline-spine{ display:none; }
+  .timeline-wrap{ padding:0; }
+  .period-item{
+    display:flex !important; flex-direction:column !important;
+    gap:0; margin-bottom:28px;
+  }
+  .period-item .period-empty{ display:none !important; }
+  .period-item .period-dot-col{ display:none !important; }
+  .period-item .period-content{
+    grid-column:unset !important; grid-row:unset !important;
+    order:unset !important;
+    border-left:4px solid var(--sakura2);
+    border-radius:0 20px 20px 0;
+  }
+  /* mobile number indicator */
+  .period-content::before{
+    content:attr(data-num);
+    font-size:9px; letter-spacing:3px;
+    color:var(--sakura3); font-weight:700;
+    text-transform:uppercase;
+  }
+  .quiz-opts{ grid-template-columns:1fr; }
+  .kq-opts{ grid-template-columns:1fr; }
+  .result-breakdown{ grid-template-columns:1fr 1fr; }
+  .modal-box{ padding:30px 20px; }
+  .wg-input-row{ max-width:100%; }
+  nav{ padding:0 16px; }
+  .hero-stats{ gap:20px; }
+  .hero-stat-num{ font-size:28px; }
+}
+@media(max-width:480px){
+  .hero-btns{ flex-direction:column; align-items:center; }
+  .btn-pink, .btn-outline{ width:100%; max-width:280px; justify-content:center; }
+  .result-breakdown{ grid-template-columns:1fr; }
+  .kq-card{ padding:30px 16px; }
+  #wg-start,#wg-play,#wg-result{ padding:36px 16px; }
+  .diff-row{ flex-direction:column; align-items:center; }
+  .quiz-hud{ flex-wrap:wrap; }
+  .hud-item{ min-width:60px; }
+}
+
+/* ── IMAGE BANNER (Sejarah, Budaya) ── */
+.fade-in > img[style*="border-radius:20px"] {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.fade-in > img[style*="border-radius:20px"]:hover {
+  transform: scale(1.01);
+  box-shadow: 0 16px 48px rgba(230,100,130,0.28) !important;
+}
+
+/* ── WISATA CARD IMPROVEMENTS ── */
+.wisata-img img {
+  transition: transform 0.5s ease;
+}
+.wisata-card:hover .wisata-img img {
+  transform: scale(1.06);
+}
+.wisata-img {
+  overflow: hidden;
+}
+
+/* ── GEO IMG-BOX ── */
+.img-box {
+  cursor: default !important;
+}
+.img-box img {
+  transition: transform 0.4s ease;
+}
+.img-box:hover img {
+  transform: scale(1.03);
+}
+
+/* ── MOBILE: wisata grid 1 col on small screens ── */
+@media(max-width:640px){
+  .wisata-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .wisata-img {
+    height: 200px !important;
+  }
+}
+
+/* ── TABLET: wisata 2 col ── */
+@media(min-width:641px) and (max-width:1024px){
+  .wisata-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-flower">🌸</div>
+  <div class="loader-title">日本 — Nihon</div>
+  <div class="loader-sub">Memuat Presentasi...</div>
+  <div class="loader-bar"><div class="loader-fill"></div></div>
+</div>
+
+<!-- SAKURA PETALS -->
+<div id="sakura-wrap"></div>
+
+<!-- BACK TO TOP -->
+<a href="#hero" id="back-top" title="Kembali ke atas">↑</a>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo"><span>🌸</span> 日本 · NIPPON</div>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#overview" onclick="closeNav()">Gambaran</a></li>
+    <li><a href="#sejarah" onclick="closeNav()">Sejarah</a></li>
+    <li><a href="#geopolitik" onclick="closeNav()">Geopolitik</a></li>
+    <li><a href="#budaya" onclick="closeNav()">Budaya</a></li>
+    <li><a href="#ekonomi" onclick="closeNav()">Ekonomi</a></li>
+    <li><a href="#wisata" onclick="closeNav()">Wisata</a></li>
+    <li><a href="#teknologi" onclick="closeNav()">Teknologi</a></li>
+    <li><a href="#geografis" onclick="closeNav()">Geografi</a></li>
+    <li><a href="#quiz" onclick="closeNav()">Quiz</a></li>
+    <li><a href="#kanji-quiz" onclick="closeNav()">Kanji</a></li>
+    <li><a href="#wordgame" onclick="closeNav()">Word</a></li>
+  </ul>
+  <div class="nav-progress" id="nav-progress" style="width:0%"></div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-circles">
+    <div class="hero-circle" style="width:600px;height:600px;top:-100px;right:-150px;animation-delay:0s;"></div>
+    <div class="hero-circle" style="width:400px;height:400px;bottom:-80px;left:-100px;animation-delay:3s;"></div>
+    <div class="hero-circle" style="width:250px;height:250px;top:30%;left:10%;animation-delay:5s;"></div>
+  </div>
+  <div class="hero-kanji-bg">日</div>
+
+  <div class="hero-tag" style="position:relative;z-index:1;">✦ Presentasi Sejarah · Kelompok ✦</div>
+  <div class="hero-kanji" style="position:relative;z-index:1;">日本</div>
+  <div class="hero-title" style="position:relative;z-index:1;">Negeri Matahari Terbit</div>
+  <div class="hero-subtitle" style="position:relative;z-index:1;">Land of the Rising Sun · 日出ずる国</div>
+  <div class="hero-line" style="position:relative;z-index:1;"></div>
+  <p class="hero-text" style="position:relative;z-index:1;">
+    Dari isolasi Sakoku yang megah hingga kekuatan <em>soft power</em> abad 21 — telusuri perjalanan epik bangsa yang bangkit dari abu dan menaklukkan dunia tanpa senjata.
+  </p>
+
+  <div class="hero-btns" style="position:relative;z-index:1;">
+    <a href="#overview" class="btn-pink">🌸 Mulai Jelajahi</a>
+    <a href="#quiz" class="btn-outline">🎯 Langsung ke Quiz</a>
+  </div>
+
+  <div class="hero-stats" style="position:relative;z-index:1;">
+    <div class="hero-stat">
+      <div class="hero-stat-num">14.125</div>
+      <div class="hero-stat-lbl">Pulau</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">125 Jt</div>
+      <div class="hero-stat-lbl">Penduduk</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">2.000+</div>
+      <div class="hero-stat-lbl">Tahun Sejarah</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">#3</div>
+      <div class="hero-stat-lbl">Ekonomi Dunia</div>
+    </div>
+  </div>
+
+  <div class="scroll-down">
+    <span>Scroll</span>
+    <div class="arr">🌸</div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-inner">
+    <span class="ticker-item">Jepang punya 1.500+ gempa per tahun</span>
+    <span class="ticker-item">5,5 juta vending machine tersebar di seluruh Jepang</span>
+    <span class="ticker-item">Angka harapan hidup tertinggi di dunia: 84 tahun</span>
+    <span class="ticker-item">Lebih dari 80.000 restoran di Tokyo</span>
+    <span class="ticker-item">Shinkansen tepat waktu hingga ±6 detik per tahun</span>
+    <span class="ticker-item">Jepang negara ketiga paling inovatif di dunia</span>
+    <span class="ticker-item">Industri anime senilai $24 miliar USD</span>
+    <span class="ticker-item">Gunung Fuji terakhir meletus tahun 1707</span>
+    <span class="ticker-item">Tokyo punya 230+ restoran berbintang Michelin</span>
+    <span class="ticker-item">Jepang memiliki 10% gunung berapi aktif dunia</span>
+    <span class="ticker-item">Jepang punya 1.500+ gempa per tahun</span>
+    <span class="ticker-item">5,5 juta vending machine tersebar di seluruh Jepang</span>
+    <span class="ticker-item">Angka harapan hidup tertinggi di dunia: 84 tahun</span>
+    <span class="ticker-item">Lebih dari 80.000 restoran di Tokyo</span>
+    <span class="ticker-item">Shinkansen tepat waktu hingga ±6 detik per tahun</span>
+    <span class="ticker-item">Jepang negara ketiga paling inovatif di dunia</span>
+    <span class="ticker-item">Industri anime senilai $24 miliar USD</span>
+    <span class="ticker-item">Gunung Fuji terakhir meletus tahun 1707</span>
+    <span class="ticker-item">Tokyo punya 230+ restoran berbintang Michelin</span>
+    <span class="ticker-item">Jepang memiliki 10% gunung berapi aktif dunia</span>
+  </div>
+</div>
+
+<!-- OVERVIEW -->
+<section id="overview">
+  <div class="section-header fade-in">
+    <span class="eyebrow">🌸 Panduan Lengkap</span>
+    <h2 class="sec-title">Apa yang Akan Kita Pelajari?<span class="jp">日本の概要</span></h2>
+    <div class="sec-line"></div>
+  </div>
+  <div class="topics-grid">
+    <a href="#sejarah" class="topic-card fade-in">
+      <span class="topic-icon">📜</span>
+      <div class="topic-num">01 · Sejarah</div>
+      <div class="topic-name">Sejarah Jepang</div>
+      <div class="topic-desc">Dari periode Jomon hingga era modern Reiwa. Lebih dari 2.000 tahun peradaban yang kaya.</div>
+    </a>
+    <a href="#geopolitik" class="topic-card fade-in">
+      <span class="topic-icon">🏯</span>
+      <div class="topic-num">02 · Geopolitik</div>
+      <div class="topic-name">Geopolitik & Era</div>
+      <div class="topic-desc">Sakoku, Meiji, Perang Dunia, Kebangkitan Ekonomi, hingga FOIP & QUAD masa kini.</div>
+    </a>
+    <a href="#budaya" class="topic-card fade-in">
+      <span class="topic-icon">🌸</span>
+      <div class="topic-num">03 · Budaya</div>
+      <div class="topic-name">Budaya Jepang</div>
+      <div class="topic-desc">Bushido, Wabi-sabi, kuliner, festival, anime, manga, dan lebih banyak lagi.</div>
+    </a>
+    <a href="#ekonomi" class="topic-card fade-in">
+      <span class="topic-icon">💹</span>
+      <div class="topic-num">04 · Ekonomi</div>
+      <div class="topic-name">Kekuatan Ekonomi</div>
+      <div class="topic-desc">Dari abu bom atom menjadi ekonomi terbesar ketiga dunia dalam 23 tahun saja.</div>
+    </a>
+    <a href="#wisata" class="topic-card fade-in">
+      <span class="topic-icon">⛩️</span>
+      <div class="topic-num">05 · Wisata</div>
+      <div class="topic-name">Destinasi Wisata</div>
+      <div class="topic-desc">Tokyo, Kyoto, Osaka, Nara, Fuji — jantung budaya dan modernitas Jepang.</div>
+    </a>
+    <a href="#teknologi" class="topic-card fade-in">
+      <span class="topic-icon">🤖</span>
+      <div class="topic-num">06 · Teknologi</div>
+      <div class="topic-name">Inovasi & Teknologi</div>
+      <div class="topic-desc">Robot, Shinkansen, PlayStation, Honda — Jepang memimpin inovasi global.</div>
+    </a>
+    <a href="#geografis" class="topic-card fade-in">
+      <span class="topic-icon">🗾</span>
+      <div class="topic-num">07 · Geografi</div>
+      <div class="topic-name">Geografi Fisik</div>
+      <div class="topic-desc">14.125 pulau, Gunung Fuji, lingkaran api Pasifik, 4 musim yang memukau.</div>
+    </a>
+    <a href="#quiz" class="topic-card fade-in">
+      <span class="topic-icon">🎯</span>
+      <div class="topic-num">08 · Quiz</div>
+      <div class="topic-name">Quiz Interaktif</div>
+      <div class="topic-desc">10 soal, timer, streak bonus — uji seberapa dalam pengetahuanmu!</div>
+    </a>
+    <a href="#kanji-quiz" class="topic-card fade-in">
+      <span class="topic-icon">漢</span>
+      <div class="topic-num">09 · Kanji</div>
+      <div class="topic-name">Kanji Quiz</div>
+      <div class="topic-desc">Tebak arti kanji-kanji penting Jepang! Seberapa banyak yang kamu kenal?</div>
+    </a>
+    <a href="#wordgame" class="topic-card fade-in">
+      <span class="topic-icon">🧩</span>
+      <div class="topic-num">10 · Mini Game</div>
+      <div class="topic-name">Word Scramble</div>
+      <div class="topic-desc">Susun huruf acak menjadi kata kunci Jepang yang tepat. Siap tantangan?</div>
+    </a>
+  </div>
+</section>
+
+<!-- SEJARAH -->
+<section id="sejarah">
+  <div class="section-header fade-in">
+    <span class="eyebrow">📜 Akar Peradaban</span>
+    <h2 class="sec-title">Sejarah Jepang<span class="jp">日本の歴史 · 2.000 Tahun Perjalanan Bangsa</span></h2>
+    <div class="sec-line"></div>
+  </div>
+  <p class="history-intro fade-in">
+    Jepang memiliki sejarah panjang lebih dari <strong>2.000 tahun</strong> dengan berbagai periode yang saling membentuk identitas bangsanya. Dari pemburu-pengumpul Jomon hingga kekaisaran modern Era Reiwa, setiap masa meninggalkan jejak yang mendalam. <em>Klik kartu untuk detail lengkap.</em>
+  </p>
+
+  <!-- Image Banner Sejarah -->
+  <div style="max-width:900px;margin:0 auto 50px;" class="fade-in">
+    <img src="https://yaffblog.wordpress.com/wp-content/uploads/2026/04/img_0590.jpeg" alt="Sejarah Jepang" style="width:100%;height:300px;object-fit:cover;border-radius:20px;box-shadow:0 8px 32px rgba(230,100,130,0.2);display:block;">
+  </div>
+
+  <div class="history-grid fade-in">
+    <div class="history-card" onclick="openModal('Periode Jomon & Yayoi (14.000 SM – 300 M)','PERIODE KUNO','Periode <strong>Jomon</strong> (14.000 SM – 300 SM) adalah periode prasejarah Jepang dengan budaya tembikar tertua di dunia. Masyarakat Jomon hidup sebagai pemburu dan pengumpul dengan populasi kecil tersebar di kepulauan Jepang.<br><br>Sekitar 300 SM, <strong>Periode Yayoi</strong> dimulai dengan kedatangan migran dari Asia daratan yang membawa budidaya padi, logam perunggu, dan besi. Transformasi ini mengubah pola hidup nomaden menjadi petani menetap.<br><br>Pada masa ini terbentuk kesatuan-kesatuan kecil yang kelak menjadi cikal bakal negara Jepang. Ratu <em>Himiko</em> dari kerajaan Yamatai menjadi penguasa wanita pertama yang tercatat dalam sejarah Jepang. Tembikar Jomon dianggap sebagai artefak keramik tertua yang pernah ditemukan di dunia.')">
+      <div class="topic-icon">🪨</div>
+      <div class="topic-num">14.000 SM – 300 M</div>
+      <div class="topic-name">Jomon & Yayoi</div>
+      <div class="topic-desc">Tembikar tertua dunia, kedatangan budaya padi, awal mula peradaban kepulauan Jepang. <em>Klik untuk detail!</em></div>
+    </div>
+
+    <div class="history-card" onclick="openModal('Periode Nara & Heian (710 – 1185 M)','PERIODE KEKAISARAN AWAL','Periode <strong>Nara (710–794 M)</strong> ditandai dengan pendirian ibu kota permanen pertama di Nara. Buddhisme diperkenalkan secara resmi dari Tiongkok dan Korea, mendampingi Shinto yang sudah ada. Kitab sejarah <em>Kojiki</em> dan <em>Nihon Shoki</em> — catatan sejarah dan mitologi Jepang — ditulis pada masa ini.<br><br>Periode <strong>Heian (794–1185 M)</strong> dianggap sebagai puncak budaya kekaisaran Jepang klasik. Ibu kota dipindah ke Kyoto (Heian-kyo). Sastra berkembang pesat — Lady Murasaki menulis <em>Genji Monogatari</em>, novel panjang pertama di dunia.<br><br>Sistem penulisan <strong>Hiragana dan Katakana</strong> dikembangkan pada periode ini, memungkinkan ekspresi budaya yang lebih kaya secara lokal. Aristokrasi Fujiwara mengendalikan pemerintahan, sementara kekuatan militer di daerah mulai tumbuh menuju era samurai.')">
+      <div class="topic-icon">🏯</div>
+      <div class="topic-num">710 – 1185 M</div>
+      <div class="topic-name">Nara & Heian</div>
+      <div class="topic-desc">Puncak budaya klasik, lahirnya huruf hiragana, novel pertama di dunia. <em>Klik untuk detail!</em></div>
+    </div>
+
+    <div class="history-card" onclick="openModal('Periode Kamakura & Era Samurai (1185 – 1600 M)','ERA SAMURAI','Pada tahun 1185, <strong>Minamoto no Yoritomo</strong> mendirikan Keshogunan Kamakura — pemerintahan militer pertama Jepang. Ini menandai transisi besar dari kekuasaan aristokrat ke kekuasaan militer (samurai).<br><br>Budaya <strong>Bushido</strong> (kode etik samurai: keberanian, kehormatan, kesetiaan) berkembang pesat. Zen Buddhisme menjadi agama dominan di kalangan prajurit karena mengajarkan ketenangan pikiran dan keberanian menghadapi kematian.<br><br>Pada 1274 dan 1281, armada Mongol Kubilai Khan mencoba menaklukkan Jepang namun gagal dua kali — keduanya dihancurkan badai yang disebut <em>Kamikaze</em> (Angin Dewa). Momen ini memperkuat kepercayaan diri bangsa Jepang.<br><br>Setelah periode perang saudara panjang (<em>Sengoku Jidai</em>), <strong>Tokugawa Ieyasu</strong> menyatukan Jepang pada 1600 dan mendirikan Keshogunan Edo yang berlangsung 250 tahun penuh kedamaian.')">
+      <div class="topic-icon">⚔️</div>
+      <div class="topic-num">1185 – 1600 M</div>
+      <div class="topic-name">Era Samurai</div>
+      <div class="topic-desc">Pemerintahan militer, kode Bushido, penolakan armada Mongol dua kali berturut-turut. <em>Klik!</em></div>
+    </div>
+
+    <div class="history-card" onclick="openModal('Periode Edo / Tokugawa (1603 – 1868 M)','ERA ISOLASI SAKOKU','Keshogunan <strong>Tokugawa</strong> membawa 250 tahun kedamaian (Pax Tokugawa) — sebuah ketenangan langka dalam sejarah Jepang yang penuh perang saudara.<br><br>Kebijakan paling legendaris: <strong>Sakoku</strong> (negara terkunci). Jepang menutup diri rapat-rapat dari dunia luar. Warga dilarang keluar negeri, orang asing dilarang masuk. Satu-satunya pintu terbuka adalah pelabuhan Dejima di Nagasaki untuk pedagang Belanda dan Tiongkok dalam jumlah sangat terbatas.<br><br>Kebijakan ini berhasil: Jepang lolos dari kolonisasi Barat yang menghancurkan negara-negara tetangga seperti India, Indonesia, dan Filipina. Namun kelemahannya: kemajuan teknologi militer Jepang tertinggal jauh dari Barat.<br><br>Di dalam negeri, budaya rakyat berkembang pesat: <em>ukiyo-e</em> (lukisan), kabuki (teater), haiku (puisi). Kelas pedagang (chonin) tumbuh kaya dan menjadi patron seni. Populasi Jepang mencapai 30 juta jiwa.')">
+      <div class="topic-icon">🔒</div>
+      <div class="topic-num">1603 – 1868 M</div>
+      <div class="topic-name">Era Edo & Sakoku</div>
+      <div class="topic-desc">250 tahun damai, isolasi total Sakoku, budaya rakyat mekar, lolos dari kolonisasi. <em>Klik!</em></div>
+    </div>
+
+    <div class="history-card" onclick="openModal('Restorasi Meiji & Modernisasi (1868 – 1912 M)','ERA MODERNISASI','Pada <strong>1853</strong>, Komodor Perry dari AS datang dengan <em>Kurofune</em> (Kapal Hitam berteknologi tinggi) dan memaksa Jepang membuka pelabuhan dengan ancaman meriam. Ini mengakhiri era Sakoku.<br><br>Jepang terkejut, tapi langsung adaptasi. Dimulailah <strong>Restorasi Meiji</strong> — kaisar kembali memegang kekuasaan dari shogun. Filosofi <em>Wakon Yosai</em> (serap teknologi Barat, pertahankan jiwa Jepang) menjadi panduan transformasi.<br><br>Hanya dalam 30 tahun: rel kereta api nasional dibangun, angkatan laut modern dibentuk, wajib belajar diberlakukan, universitas didirikan, dan industri berat tumbuh pesat.<br><br>Puncaknya pada <strong>1905</strong>: Jepang mengalahkan Rusia dalam Perang Rusia-Jepang — pertama kalinya bangsa Asia mengalahkan kekuatan Eropa. Menggemparkan seluruh dunia!')">
+      <div class="topic-icon">⚡</div>
+      <div class="topic-num">1868 – 1912 M</div>
+      <div class="topic-name">Restorasi Meiji</div>
+      <div class="topic-desc">Modernisasi kilat, Wakon Yosai, kalahkan Rusia 1905 — Asia pertama mengalahkan Eropa. <em>Klik!</em></div>
+    </div>
+
+    <div class="history-card" onclick="openModal('Era Modern: Perang Dunia hingga Reiwa (1912 – Kini)','ERA KONTEMPORER','Setelah Meiji, Jepang memasuki fase militerisme dengan ideologi <strong>Hakko Ichiu</strong> — ambisi menguasai Asia. Ekspansi ke Manchuria, Tiongkok, dan Asia Tenggara dimulai.<br><br>Pada <strong>7 Desember 1941</strong>, Jepang menyerang Pearl Harbor. Perang Pasifik dimulai. Pada <strong>6 dan 9 Agustus 1945</strong>, bom atom dijatuhkan di Hiroshima dan Nagasaki — lebih dari 200.000 korban jiwa. Jepang menyerah tanpa syarat pada 2 September 1945.<br><br>Dari kehancuran total, Jepang bangkit dengan <strong>Konstitusi Perdamaian 1947</strong> (Pasal 9 melarang militer ofensif) dan <em>Yoshida Doctrine</em>: fokus 100% pada ekonomi. Dalam <strong>23 tahun</strong>, Jepang menjadi ekonomi kedua terbesar dunia (1968).<br><br>Era kini: <strong>Era Reiwa</strong> (2019–sekarang), Jepang menantang penuaan populasi, perubahan iklim, dan geopolitik dengan visi FOIP dan kekuatan soft power global.')">
+      <div class="topic-icon">🌅</div>
+      <div class="topic-num">1912 – Kini</div>
+      <div class="topic-name">Era Modern & Reiwa</div>
+      <div class="topic-desc">PD2, bom atom, kebangkitan mujizat ekonomi, era Reiwa masa kini. <em>Klik!</em></div>
+    </div>
+  </div>
+</section>
+
+<!-- GEOPOLITIK TIMELINE -->
+<section id="geopolitik">
+  <div class="section-header fade-in">
+    <span class="eyebrow">🏯 Lima Era Kritis</span>
+    <h2 class="sec-title">Geopolitik Jepang<span class="jp">地政学 · Perjalanan Bangsa di Panggung Dunia</span></h2>
+    <div class="sec-line"></div>
+  </div>
+  <p style="text-align:center;max-width:640px;margin:0 auto 50px;font-size:14px;color:var(--ink2);line-height:1.9;" class="fade-in">
+    Lima periode yang membentuk posisi Jepang di panggung dunia — dari isolasi total hingga menjadi kekuatan global tanpa senjata. <em>Klik tiap kartu untuk membuka detail.</em>
+  </p>
+  <div class="timeline-wrap">
+    <div class="timeline-spine"></div>
+
+    <!-- PERIODE 01: LEFT -->
+    <div class="period-item fade-in" data-num="01">
+      <div class="period-content" onclick="togglePeriod(this)" data-num="01">
+        <div class="period-num">PERIODE 01</div>
+        <div class="period-era">Sakoku — Era Isolasi</div>
+        <div class="period-years">1603 — 1853</div>
+        <div class="period-tagline">"Menutup diri dari dunia untuk selamat dari kolonisasi — strategi paling brilian dalam sejarah Asia."</div>
+        <div class="period-keywords">
+          <span class="period-keyword">Sakoku</span>
+          <span class="period-keyword">Tokugawa</span>
+          <span class="period-keyword">Isolasi 250 Tahun</span>
+          <span class="period-keyword">Lolos Kolonisasi</span>
+        </div>
+        <div class="period-toggle-hint">▼ Klik untuk detail</div>
+        <div class="period-detail">
+          <p>Ketika Eropa berlomba menjajah Asia — India jatuh ke Inggris, Indonesia ke Belanda, Filipina ke Spanyol — Jepang memilih jalan yang berbeda: <strong>menutup diri total.</strong></p>
+          <p>Kebijakan <strong>Sakoku</strong> (1639) melarang seluruh hubungan dengan dunia luar. Warga Jepang yang pergi ke luar negeri diancam hukuman mati jika kembali. Satu-satunya jendela ke dunia adalah pelabuhan kecil <strong>Dejima, Nagasaki</strong>.</p>
+          <p>Hasilnya luar biasa: Jepang menjadi <em>satu-satunya negara Asia yang tidak dijajah Barat.</em> Tapi teknologi militernya tertinggal jauh — sebuah bom waktu yang menunggu meledak.</p>
+        </div>
+      </div>
+      <div class="period-dot-col"><div class="period-dot"></div></div>
+      <div class="period-empty"></div>
+    </div>
+
+    <!-- PERIODE 02: RIGHT -->
+    <div class="period-item fade-in">
+      <div class="period-empty"></div>
+      <div class="period-dot-col"><div class="period-dot"></div></div>
+      <div class="period-content" onclick="togglePeriod(this)" data-num="02">
+        <div class="period-num">PERIODE 02</div>
+        <div class="period-era">Restorasi Meiji</div>
+        <div class="period-years">1853 — 1912</div>
+        <div class="period-tagline">"Wakon Yosai — serap semua teknologi Barat, pertahankan jiwa Jepang. Hasilnya? Mengalahkan Rusia."</div>
+        <div class="period-keywords">
+          <span class="period-keyword">Wakon Yosai</span>
+          <span class="period-keyword">Kurofune</span>
+          <span class="period-keyword">Modernisasi Kilat</span>
+          <span class="period-keyword">Kalahkan Rusia 1905</span>
+        </div>
+        <div class="period-toggle-hint">▼ Klik untuk detail</div>
+        <div class="period-detail">
+          <p>Bom waktu itu meledak pada <strong>1853</strong>. Komodor Perry dari AS datang membawa <strong>Kurofune (Kapal Hitam)</strong> dan memaksa Jepang membuka pelabuhan dengan ancaman meriam.</p>
+          <p>Jepang terkejut — tapi langsung adaptasi. Mereka memulai <strong>Restorasi Meiji</strong> dengan filosofi <em>Wakon Yosai</em>: menyerap teknologi Barat, pertahankan jiwa Jepang. Kaisar Meiji kembali memegang kekuasaan dari tangan shogun.</p>
+          <p>Hanya dalam 30 tahun: rel kereta api dibangun, angkatan laut modern dibentuk, universitas didirikan, industri berat tumbuh. Dan pada <strong>1905</strong>, Jepang mengalahkan Rusia — pertama kalinya bangsa Asia mengalahkan kekuatan Eropa besar. Menggemparkan dunia!</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PERIODE 03: LEFT -->
+    <div class="period-item fade-in">
+      <div class="period-content" onclick="togglePeriod(this)" data-num="03">
+        <div class="period-num">PERIODE 03</div>
+        <div class="period-era">Militerisme & Perang Dunia</div>
+        <div class="period-years">1912 — 1945</div>
+        <div class="period-tagline">"Hakko Ichiu — ambisi menguasai Asia berakhir dengan dua bom atom dan kehancuran total."</div>
+        <div class="period-keywords">
+          <span class="period-keyword">Hakko Ichiu</span>
+          <span class="period-keyword">Pearl Harbor 1941</span>
+          <span class="period-keyword">Hiroshima & Nagasaki</span>
+          <span class="period-keyword">Kamikaze</span>
+        </div>
+        <div class="period-toggle-hint">▼ Klik untuk detail</div>
+        <div class="period-detail">
+          <p>Kekuatan yang tumbuh terlalu cepat melahirkan keangkuhan. Didorong ideologi <strong>Hakko Ichiu</strong> — ambisi memimpin Asia — militer mengambil alih pemerintahan dan memulai ekspansi agresif ke Manchuria, Tiongkok, dan Asia Tenggara.</p>
+          <p>Pada <strong>7 Desember 1941</strong>, Jepang menyerang Pearl Harbor. AS ikut berperang. Operasi Island Hopping memojokkan Jepang. Pilot <em>Kamikaze</em> (bunuh diri) dikerahkan sebagai senjata terakhir.</p>
+          <p>Pada <strong>6 Agustus 1945</strong>, bom atom pertama dijatuhkan di Hiroshima, disusul Nagasaki 3 hari kemudian. Lebih dari 3 juta jiwa Jepang hilang dalam perang. Tanggal <em>2 September 1945</em>, Jepang menyerah tanpa syarat — era kekaisaran militer berakhir.</p>
+        </div>
+      </div>
+      <div class="period-dot-col"><div class="period-dot"></div></div>
+      <div class="period-empty"></div>
+    </div>
+
+    <!-- PERIODE 04: RIGHT -->
+    <div class="period-item fade-in">
+      <div class="period-empty"></div>
+      <div class="period-dot-col"><div class="period-dot"></div></div>
+      <div class="period-content" onclick="togglePeriod(this)" data-num="04">
+        <div class="period-num">PERIODE 04</div>
+        <div class="period-era">Perang Dingin & Kebangkitan</div>
+        <div class="period-years">1945 — 1991</div>
+        <div class="period-tagline">"Yoshida Doctrine — tanpa militer, Jepang jadi ekonomi terbesar ke-2 dunia hanya dalam 23 tahun."</div>
+        <div class="period-keywords">
+          <span class="period-keyword">Pasal 9</span>
+          <span class="period-keyword">Yoshida Doctrine</span>
+          <span class="period-keyword">Mujizat Ekonomi</span>
+          <span class="period-keyword">Aliansi AS-Jepang</span>
+        </div>
+        <div class="period-toggle-hint">▼ Klik untuk detail</div>
+        <div class="period-detail">
+          <p>Dari abu kehancuran, Jepang dirancang ulang. <strong>Konstitusi Perdamaian 1947</strong>, khususnya <em>Pasal 9</em>, melarang Jepang memiliki angkatan perang ofensif — keputusan bersejarah yang unik di dunia.</p>
+          <p>PM Shigeru Yoshida mengubah kelemahan ini menjadi kekuatan lewat <strong>Yoshida Doctrine</strong>: serahkan keamanan ke AS, fokuslah 100% pada ekonomi dan teknologi. Hasilnya fenomenal.</p>
+          <p>Hanya dalam <strong>23 tahun</strong> sejak bom atom, Jepang menjadi <em>ekonomi terbesar kedua di dunia</em> (1968). Toyota, Sony, Honda, Panasonic membanjiri pasar global. Ini adalah <em>"Mujizat Ekonomi Jepang"</em> yang dikagumi seluruh dunia.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PERIODE 05: LEFT -->
+    <div class="period-item fade-in">
+      <div class="period-content" onclick="togglePeriod(this)" data-num="05">
+        <div class="period-num">PERIODE 05</div>
+        <div class="period-era">Abad 21 — Era Soft Power</div>
+        <div class="period-years">1991 — Kini (Era Reiwa)</div>
+        <div class="period-tagline">"FOIP, QUAD, Anime — Jepang menancapkan pengaruh global tanpa mengangkat senjata."</div>
+        <div class="period-keywords">
+          <span class="period-keyword">FOIP</span>
+          <span class="period-keyword">QUAD</span>
+          <span class="period-keyword">Soft Power Global</span>
+          <span class="period-keyword">Ancaman Tiongkok & Korut</span>
+        </div>
+        <div class="period-toggle-hint">▼ Klik untuk detail</div>
+        <div class="period-detail">
+          <p>Di abad 21, Jepang menghadapi tiga ancaman nyata: kebangkitan <strong>Tiongkok</strong> yang agresif di Laut Cina Selatan, ancaman nuklir <strong>Korea Utara</strong>, dan sengketa wilayah dengan Rusia.</p>
+          <p>Sebagai respons, PM Abe Shinzo mencanangkan visi <strong>FOIP (Free and Open Indo-Pacific)</strong> dan membangun aliansi <strong>QUAD</strong> bersama AS, Australia, dan India untuk menyeimbangkan dominasi Tiongkok di kawasan.</p>
+          <p>Namun senjata paling ampuh Jepang justru bukan militer: <strong>Soft Power</strong>. Anime, manga, J-Pop, Nintendo, Studio Ghibli, kuliner Jepang — semuanya menyebarkan pengaruh budaya ke seluruh planet. Jepang membuktikan: <em>pengaruh terbesar tidak perlu senjata.</em></p>
+        </div>
+      </div>
+      <div class="period-dot-col"><div class="period-dot"></div></div>
+      <div class="period-empty"></div>
+    </div>
+  </div>
+</section>
+
+<!-- BUDAYA -->
+<section id="budaya">
+  <div class="section-header fade-in">
+    <span class="eyebrow">🌸 Warisan Tak Ternilai</span>
+    <h2 class="sec-title">Budaya Jepang<span class="jp">日本文化 · Tradisi yang Hidup</span></h2>
+    <div class="sec-line"></div>
+  </div>
+
+  <!-- Image Banner Budaya -->
+  <div style="max-width:900px;margin:0 auto 50px;" class="fade-in">
+    <img src="https://yaffblog.wordpress.com/wp-content/uploads/2026/04/img_0591-1.jpeg" alt="Budaya Jepang - Festival Sakura" style="width:100%;height:280px;object-fit:cover;border-radius:20px;box-shadow:0 8px 32px rgba(230,100,130,0.2);display:block;">
+  </div>
+
+  <div class="culture-grid">
+    <div class="culture-card fade-in">
+      <span class="culture-icon">🥷</span>
+      <div class="culture-sub">Tradisi & Filosofi</div>
+      <div class="culture-title">Bushido & Samurai</div>
+      <ul class="culture-points">
+        <li>Kode kehormatan 7 nilai samurai: keberanian, kehormatan, kesetiaan, keadilan, kesopanan, kejujuran, dan pengendalian diri</li>
+        <li>Harakiri (Seppuku) — bunuh diri ritual untuk mempertahankan kehormatan daripada tertangkap musuh</li>
+        <li>Pengaruh Bushido masih terasa kuat dalam etos kerja keras dan disiplin Jepang modern</li>
+        <li>Katana dianggap jiwa samurai — dikerjakan berbulan-bulan oleh ahli pandai besi, bukan sekadar senjata</li>
+      </ul>
+    </div>
+    <div class="culture-card fade-in">
+      <span class="culture-icon">🎨</span>
+      <div class="culture-sub">Seni & Estetika</div>
+      <div class="culture-title">Wabi-Sabi & Seni Tradisional</div>
+      <ul class="culture-points">
+        <li>Wabi-sabi: filosofi menemukan keindahan sejati dalam ketidaksempurnaan, kesederhanaan, dan kesementaraan</li>
+        <li>Kintsugi — seni memperbaiki keramik retak dengan emas, mengajarkan bahwa kerusakan adalah bagian dari keindahan</li>
+        <li>Ikebana (merangkai bunga), Ukiyo-e (cetakan kayu), Origami, Kaligrafi Shodo</li>
+        <li>Noh, Kabuki, Bunraku — teater tradisional berusia ratusan tahun yang masih hidup hingga kini</li>
+      </ul>
+    </div>
+    <div class="culture-card fade-in">
+      <span class="culture-icon">🍣</span>
+      <div class="culture-sub">Kuliner</div>
+      <div class="culture-title">Washoku — Warisan UNESCO</div>
+      <ul class="culture-points">
+        <li>Washoku diakui UNESCO sebagai Warisan Budaya Takbenda (2013) karena keseimbangan gizi dan estetikanya</li>
+        <li>Filosofi Ichiju Sansai: satu sup, tiga lauk — harmoni sempurna antara rasa, warna, dan nutrisi</li>
+        <li>Sushi, ramen, tempura, soba, udon, yakitori, takoyaki, okonomiyaki — kekayaan kuliner yang tak tertandingi</li>
+        <li>Upacara Teh (Chado) — ritual menyeduh matcha yang mengandung filosofi kedamaian, harmoni, dan kesucian</li>
+      </ul>
+    </div>
+    <div class="culture-card fade-in">
+      <span class="culture-icon">🏮</span>
+      <div class="culture-sub">Festival & Tradisi</div>
+      <div class="culture-title">Matsuri & Perayaan</div>
+      <ul class="culture-points">
+        <li>Hanami — tradisi menikmati mekarnya bunga sakura bersama keluarga, teman, dan rekan kerja</li>
+        <li>Obon — festival arwah leluhur dengan tarian Bon Odori yang indah di bawah cahaya lentera</li>
+        <li>Tanabaka (festival bintang), Setsubun (mengusir setan), Shichi-Go-San (tumbuh kembang anak)</li>
+        <li>Lebih dari 300.000 matsuri (festival) berlangsung setiap tahun di seluruh pelosok Jepang</li>
+      </ul>
+    </div>
+    <div class="culture-card fade-in">
+      <span class="culture-icon">🎌</span>
+      <div class="culture-sub">Pop Culture Global</div>
+      <div class="culture-title">Anime, Manga & J-Pop</div>
+      <ul class="culture-points">
+        <li>Industri anime senilai $24 miliar USD — pasar global terbesar hiburan animasi di dunia</li>
+        <li>Studio Ghibli (Hayao Miyazaki) diakui sebagai pembuat film animasi terbaik dan paling berpengaruh di dunia</li>
+        <li>Cosplay, budaya Harajuku, Akihabara sebagai surga otaku — fenomena yang menyebar ke seluruh dunia</li>
+        <li>J-Pop dan budaya idol K-pop yang terinspirasi dari Jepang; pengaruh musik Jepang terasa di seluruh Asia</li>
+      </ul>
+    </div>
+    <div class="culture-card fade-in">
+      <span class="culture-icon">⛩️</span>
+      <div class="culture-sub">Agama & Spiritualitas</div>
+      <div class="culture-title">Shinto & Buddhisme</div>
+      <ul class="culture-points">
+        <li>Shinto: agama asli Jepang, percaya roh (kami) ada di semua benda dan tempat di alam semesta</li>
+        <li>Buddhisme masuk abad ke-6 dari Korea dan Tiongkok, hidup berdampingan harmonis dengan Shinto</li>
+        <li>80% orang Jepang menjalankan keduanya: Shinto untuk kelahiran & pernikahan, Buddha untuk kematian</li>
+        <li>Lebih dari 80.000 kuil Shinto dan 75.000 vihara Buddha tersebar di seluruh penjuru Jepang</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- EKONOMI -->
+<section id="ekonomi">
+  <div class="section-header fade-in">
+    <span class="eyebrow">💹 Kekuatan Ekonomi</span>
+    <h2 class="sec-title">Ekonomi Jepang<span class="jp">日本の経済 · Mujizat dari Abu</span></h2>
+    <div class="sec-line"></div>
+  </div>
+  <p style="text-align:center;max-width:650px;margin:0 auto 50px;font-size:14px;color:var(--ink2);line-height:1.9;" class="fade-in">
+    Dari abu bom atom 1945, Jepang bangkit menjadi <strong>ekonomi terbesar ketiga dunia</strong> dengan PDB $4,2 triliun USD. Ini bukan keberuntungan — ini hasil dari disiplin luar biasa, inovasi tanpa henti, dan strategi brilian bangsa Jepang.
+  </p>
+  <div class="ekon-grid">
+    <div class="ekon-card fade-in">
+      <div class="ekon-icon">🏭</div>
+      <div class="ekon-label">Manufaktur</div>
+      <div class="ekon-value">Toyota & Industri Otomotif</div>
+      <div class="ekon-desc">Jepang adalah produsen otomotif terbesar kedua dunia. Toyota, Honda, Nissan, Subaru, dan Mazda menguasai pasar global. Sistem produksi Toyota (<em>Kaizen</em> & <em>Just-in-Time</em>) menjadi standar manajemen pabrik yang diadopsi di seluruh dunia.</div>
+    </div>
+    <div class="ekon-card fade-in">
+      <div class="ekon-icon">📱</div>
+      <div class="ekon-label">Elektronik</div>
+      <div class="ekon-value">Sony, Panasonic & Toshiba</div>
+      <div class="ekon-desc">Raksasa elektronik Jepang mendominasi pasar global dari 1970-an hingga 2000-an. Walkman pertama di dunia, LCD pertama, PlayStation revolusioner — semua inovasi Jepang. Kini Sony tetap memimpin audio-visual dan gaming global.</div>
+    </div>
+    <div class="ekon-card fade-in">
+      <div class="ekon-icon">🎮</div>
+      <div class="ekon-label">Hiburan & Gaming</div>
+      <div class="ekon-value">Nintendo & Industri Game</div>
+      <div class="ekon-desc">Nintendo, Sony PlayStation, Sega — Jepang mendominasi industri video game global senilai $200 miliar. Super Mario, Zelda, Pokémon, Final Fantasy lahir di Jepang dan kini menjadi ikon budaya pop global yang melampaui batas generasi.</div>
+    </div>
+    <div class="ekon-card fade-in">
+      <div class="ekon-icon">🤖</div>
+      <div class="ekon-label">Robotika</div>
+      <div class="ekon-value">Pemimpin Robot Industri Dunia</div>
+      <div class="ekon-desc">Jepang memiliki kepadatan robot industri tertinggi di dunia: 399 robot per 10.000 pekerja. Fanuc dan Honda ASIMO memimpin revolusi robotika global yang mengubah cara kerja pabrik, rumah sakit, dan transportasi dunia.</div>
+    </div>
+    <div class="ekon-card fade-in">
+      <div class="ekon-icon">🌿</div>
+      <div class="ekon-label">Keberlanjutan</div>
+      <div class="ekon-value">Green Economy & Energi Bersih</div>
+      <div class="ekon-desc">Jepang memimpin pengembangan mobil hybrid global melalui Toyota Prius (1997) dan teknologi fuel cell hydrogen. Target karbon netral 2050. Investasi besar dalam energi surya dan angin pasca bencana nuklir Fukushima 2011.</div>
+    </div>
+    <div class="ekon-card fade-in">
+      <div class="ekon-icon">💰</div>
+      <div class="ekon-label">Statistik Kunci</div>
+      <div class="ekon-value">Angka & Fakta Ekonomi</div>
+      <div class="ekon-desc">PDB: <strong>$4,2 Triliun USD</strong> · Peringkat #3 Dunia · Ekspor terbesar: kendaraan ($130 miliar/tahun) · Komponen semikonduktor · Mesin industri presisi · Tokyo adalah pusat keuangan terbesar di Asia.</div>
+    </div>
+  </div>
+</section>
+
+<!-- WISATA -->
+<section id="wisata">
+  <div class="section-header fade-in">
+    <span class="eyebrow">⛩️ Destinasi Impian</span>
+    <h2 class="sec-title">Wisata Jepang<span class="jp">観光 · Negeri 1.000 Keajaiban</span></h2>
+    <div class="sec-line"></div>
+  </div>
+  
+  <div class="wisata-grid">
+    <!-- TOKYO -->
+    <div class="wisata-card fade-in">
+      <div class="wisata-img" id="wi-tokyo" style="background:transparent;border-bottom:none;" onclick="handleWisataClick(event, 'img-tokyo', 'Tokyo — Ibukota Kontras','KOTA METROPOLITAN','<strong>Tokyo</strong> adalah salah satu kota terbesar dan terpadat di dunia dengan populasi 14 juta jiwa (37 juta di area metropolitan).<br><br>Tokyo memadukan masa depan dan masa lalu secara sempurna: gedung pencakar langit di samping kuil berusia 400 tahun, budaya kawaii di samping tradisi samurai.<br><br><strong>Destinasi wajib:</strong><br>• Shibuya Crossing — persimpangan tersibuk di dunia (3.000 penyeberang per menit)<br>• Senso-ji Temple (Asakusa) — kuil tertua Tokyo, dibangun 628 M<br>• Akihabara — surga elektronik dan budaya otaku global<br>• Harajuku — pusat fashion avant-garde dan budaya kawaii<br>• Tokyo Skytree (634 m) — menara tertinggi di dunia<br>• Tsukiji & Toyosu — pasar ikan terbesar dunia<br><br>Tokyo juga memiliki lebih restoran berbintang Michelin daripada kota manapun di dunia (230+ bintang).')">
+        <div class="wisata-img-placeholder" id="ph-tokyo" style="display:none;">
+          <span class="ph-icon">🗼</span>
+          <div class="ph-text">📸 Foto Tokyo</div>
+          
+        </div>
+        <img id="img-tokyo" src="https://yaffblog.wordpress.com/wp-content/uploads/2026/04/img_0567.jpeg" alt="Tokyo" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;">
+        
+      </div>
+      <div class="wisata-body">
+        <div class="wisata-name">Tokyo</div>
+        <div class="wisata-loc">📍 Kanto · Ibukota Jepang</div>
+        <div class="wisata-desc">Kota futuristik yang memadukan neon Shibuya, kuil Senso-ji, surga otaku Akihabara, dan 230+ restoran berbintang Michelin.</div>
+        <span class="wisata-tag">Wajib Dikunjungi</span>
+      </div>
+    </div>
+
+    <!-- KYOTO -->
+    <div class="wisata-card fade-in">
+      <div class="wisata-img" id="wi-kyoto" style="background:transparent;border-bottom:none;" onclick="handleWisataClick(event, 'img-kyoto', 'Kyoto — Jiwa Jepang Sesungguhnya','KOTA BUDAYA','<strong>Kyoto</strong> adalah ibu kota Jepang selama 1.074 tahun (794–1868). Kota ini memiliki lebih dari 2.000 kuil dan tempat suci, 17 di antaranya adalah Situs Warisan Dunia UNESCO.<br><br>Kyoto adalah tempat di mana budaya Jepang tradisional paling terpelihara — geisha (maiko) masih bisa ditemui di distrik Gion, upacara teh masih dilakukan dalam tatami room yang autentik.<br><br><strong>Destinasi legendaris:</strong><br>• Fushimi Inari Taisha — 10.000+ torii gate merah berjejer di bukit<br>• Arashiyama Bamboo Grove — hutan bambu yang memukau dan menenangkan<br>• Kinkaku-ji (Pavilion Emas) — kuil berlapis emas murni yang memantulkan cahaya<br>• Gion — distrik geisha bersejarah, jalanan batu bata dan lampion merah<br>• Nishiki Market — pasar kuliner sempit sepanjang 400 meter<br>• Philosopher\'s Path — jalur batu sepanjang 2 km di pinggir kanal sakura')">
+        <div class="wisata-img-placeholder" id="ph-kyoto" style="display:none;">
+          <span class="ph-icon">⛩️</span>
+          <div class="ph-text">📸 Foto Kyoto</div>
+          
+        </div>
+        <img id="img-kyoto" src="https://yaffblog.wordpress.com/wp-content/uploads/2026/04/img_0576.jpeg" alt="Kyoto" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;">
+        
+      </div>
+      <div class="wisata-body">
+        <div class="wisata-name">Kyoto</div>
+        <div class="wisata-loc">📍 Kansai · Ibukota 1.000 Tahun</div>
+        <div class="wisata-desc">10.000 torii Fushimi Inari, Kinkaku-ji berlapis emas, distrik geisha Gion, hutan bambu Arashiyama — jiwa sejati Jepang.</div>
+        <span class="wisata-tag">UNESCO Heritage</span>
+      </div>
+    </div>
+
+    <!-- OSAKA -->
+    <div class="wisata-card fade-in">
+      <div class="wisata-img" id="wi-osaka" style="background:transparent;border-bottom:none;" onclick="handleWisataClick(event, 'img-osaka', 'Osaka — Surga Kuliner Jepang','KOTA GASTRONOMI','<strong>Osaka</strong> dikenal sebagai <em>Tenka no Daidokoro</em> — &quot;Dapur Surga.&quot; Penduduk Osaka terkenal ramah, ekspresif, dan paling cinta makanan di Jepang.<br><br>Osaka Castle yang megah, dibangun tahun 1583 oleh Toyotomi Hideyoshi, adalah simbol kota ini. Di bawah kastil terdapat museum sejarah yang menakjubkan.<br><br><strong>Kuliner khas Osaka:</strong><br>• Takoyaki — bola gurita panas yang legendaris, lahir di Osaka<br>• Okonomiyaki — pancake gurih berisi daging dan sayuran segar<br>• Kushikatsu — gorengan tusuk dengan 100+ pilihan bahan<br><br><strong>Tempat wisata:</strong><br>• Dotonbori — jantung hiburan Osaka, penuh neon dan kuliner<br>• Universal Studios Japan — hiburan kelas dunia<br>• Kuromon Ichiba Market — pasar kuliner terbaik Osaka')">
+        <div class="wisata-img-placeholder" id="ph-osaka" style="display:none;">
+          <span class="ph-icon">🍜</span>
+          <div class="ph-text">📸 Foto Osaka</div>
+          
+        </div>
+        <img id="img-osaka" src="https://yaffblog.wordpress.com/wp-content/uploads/2026/04/img_0592.jpeg" alt="Osaka" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;">
+        
+      </div>
+      <div class="wisata-body">
+        <div class="wisata-name">Osaka</div>
+        <div class="wisata-loc">📍 Kansai · Ibukota Kuliner</div>
+        <div class="wisata-desc">Takoyaki legendaris, Dotonbori berwarna-warni, Osaka Castle megah, dan Universal Studios Japan yang spektakuler.</div>
+        <span class="wisata-tag">Surga Foodie</span>
+      </div>
+    </div>
+
+    <!-- NARA -->
+    <div class="wisata-card fade-in">
+      <div class="wisata-img" id="wi-nara" style="background:transparent;border-bottom:none;" onclick="handleWisataClick(event, 'img-nara', 'Nara — Kota Rusa & Kuil Raksasa','KOTA WARISAN KUNO','<strong>Nara</strong> adalah ibu kota pertama Jepang (710–794 M). Kota ini menyimpan lebih dari 1.300 tahun sejarah dalam satu tempat.<br><br>Yang paling ikonik: <strong>rusa tame (jinak)</strong> yang berkeliaran bebas di taman kota. Sekitar 1.200 ekor rusa dianggap suci sebagai penjaga dewa Kasuga. Mereka bisa membungkuk kepada pengunjung yang memberi biskuit khusus (<em>shika senbei</em>).<br><br><strong>Destinasi kunci:</strong><br>• Todai-ji Temple — vihara kayu terbesar di dunia, rumah patung Buddha perunggu 15 meter (Daibutsu)<br>• Nara Park — taman rusa seluas 660 hektar di jantung kota<br>• Kasuga Taisha — kuil Shinto kuno dengan 3.000+ lentera batu dan perunggu<br>• Horyu-ji — kuil tertua di dunia yang masih berdiri (607 M), Situs UNESCO')">
+        <div class="wisata-img-placeholder" id="ph-nara" style="display:none;">
+          <span class="ph-icon">🦌</span>
+          <div class="ph-text">📸 Foto Nara</div>
+          
+        </div>
+        <img id="img-nara" src="https://yaffblog.wordpress.com/wp-content/uploads/2026/04/img_0593.jpeg" alt="Nara" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;">
+        
+      </div>
+      <div class="wisata-body">
+        <div class="wisata-name">Nara</div>
+        <div class="wisata-loc">📍 Kansai · Ibukota Kuno</div>
+        <div class="wisata-desc">1.200 rusa suci jinak, Todai-ji Buddha raksasa 15 meter, Kasuga Taisha dengan 3.000 lentera, Horyu-ji tertua di dunia.</div>
+        <span class="wisata-tag">Warisan Dunia</span>
+      </div>
+    </div>
+
+    <!-- GUNUNG FUJI -->
+    <div class="wisata-card fade-in">
+      <div class="wisata-img" id="wi-fuji" style="background:transparent;border-bottom:none;" onclick="handleWisataClick(event, 'img-fuji', 'Gunung Fuji — Simbol Abadi Jepang','IKON NASIONAL','<strong>Gunung Fuji</strong> (富士山, 3.776 m) adalah gunung tertinggi dan paling ikonik di Jepang. Fuji adalah gunung berapi strato aktif yang terakhir meletus pada 1707.<br><br>Gunung ini sudah menjadi objek seni Jepang selama berabad-abad. Karya Katsushika Hokusai <em>Tiga Puluh Enam Pemandangan Gunung Fuji</em> (1831) adalah salah satu karya seni paling berpengaruh di dunia.<br><br><strong>Fakta Fuji:</strong><br>• Situs Warisan Dunia UNESCO sejak 2013<br>• 200.000–300.000 pendaki per musim (Juli–Agustus)<br>• 4 jalur pendakian: Yoshida, Subashiri, Gotemba, Fujinomiya<br>• Terlihat dari Tokyo (100+ km) pada hari yang cerah<br>• Fuji Five Lakes (Fujigoko) — spot foto terbaik dengan Fuji sebagai latar<br><br>Fuji dianggap suci dalam Shinto dan telah menjadi tujuan ziarah selama lebih dari 1.200 tahun.')">
+        <div class="wisata-img-placeholder" id="ph-fuji" style="display:none;">
+          <span class="ph-icon">🗻</span>
+          <div class="ph-text">📸 Foto Gunung Fuji</div>
+          
+        </div>
+        <img id="img-fuji" src="https://yaffblog.wordpress.com/wp-content/uploads/2026/04/img_0586.jpeg" alt="Gunung Fuji" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;">
+        
+      </div>
+      <div class="wisata-body">
+        <div class="wisata-name">Gunung Fuji</div>
+        <div class="wisata-loc">📍 Chubu-Kanto · Ikon Nasional</div>
+        <div class="wisata-desc">3.776 meter simbol sakral, terlihat dari Tokyo, 300.000 pendaki per musim, dan inspirasi seni selama berabad-abad.</div>
+        <span class="wisata-tag">UNESCO · Sakral</span>
+      </div>
+    </div>
+
+    <!-- HOKKAIDO -->
+    <div class="wisata-card fade-in">
+      <div class="wisata-img" id="wi-hokkaido" style="background:transparent;border-bottom:none;" onclick="handleWisataClick(event, 'img-hokkaido', 'Hokkaido — Surga Alam Utara','PULAU ALAM','<strong>Hokkaido</strong> adalah pulau paling utara Jepang — tempat alam liar, salju abadi, dan ketenangan bertemu.<br><br>Berbeda dari pulau-pulau Jepang lainnya, Hokkaido baru dikembangkan besar-besaran pada era Meiji (1869). Ini menjadikannya terasa lebih &quot;terbuka&quot; dan lapang dibanding Honshu yang padat.<br><br><strong>Daya tarik utama:</strong><br>• Sapporo — tuan rumah Olimpiade Musim Dingin 1972, terkenal dengan Sapporo Snow Festival spektakuler<br>• Furano & Biei — ladang lavender ungu yang memukau saat musim panas<br>• Shiretoko — Taman Nasional UNESCO, habitat beruang coklat dan elang emas langka<br>• Onsen (sumber air panas) terbaik Jepang ada di Hokkaido<br>• Seafood Hokkaido (kepiting, salmon, uni) — segar dan terbaik di seluruh Jepang')">
+        <div class="wisata-img-placeholder" id="ph-hokkaido" style="display:none;">
+          <span class="ph-icon">❄️</span>
+          <div class="ph-text">📸 Foto Hokkaido</div>
+          
+        </div>
+        <img id="img-hokkaido" src="https://yaffblog.wordpress.com/wp-content/uploads/2026/04/img_0587-1.jpeg" alt="Hokkaido" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;">
+        
+      </div>
+      <div class="wisata-body">
+        <div class="wisata-name">Hokkaido</div>
+        <div class="wisata-loc">📍 Pulau Utara · Surga Alam</div>
+        <div class="wisata-desc">Ladang lavender Furano, festival salju Sapporo, Shiretoko UNESCO, onsen kelas dunia, dan seafood terbaik Jepang.</div>
+        <span class="wisata-tag">Nature & Snow</span>
+      </div>
+    </div>
+  </div>
+
+  
+</section>
+
+<!-- TEKNOLOGI -->
+<section id="teknologi">
+  <div class="section-header fade-in">
+    <span class="eyebrow">🤖 Inovasi Tanpa Henti</span>
+    <h2 class="sec-title">Teknologi Jepang<span class="jp">技術革新 · Memimpin Dunia</span></h2>
+    <div class="sec-line"></div>
+  </div>
+  <div class="tech-grid">
+    <div class="tech-card fade-in">
+      <div class="tech-icon">🚄</div>
+      <div class="tech-label">Transportasi</div>
+      <div class="tech-name">Shinkansen — Kereta Peluru</div>
+      <div class="tech-desc">Dioperasikan sejak 1964, Shinkansen adalah kereta tercepat dan paling andal di dunia. Kecepatan hingga 320 km/jam dengan ketepatan waktu rata-rata ±6 detik dalam setahun penuh. Nol kecelakaan fatal sejak 60 tahun beroperasi — rekor dunia.</div>
+      <div class="tech-bar"><div class="tech-bar-label"><span>Kecepatan & Keandalan</span><span>99%</span></div><div class="tech-bar-track"><div class="tech-bar-fill" style="width:0" data-target="99"></div></div></div>
+    </div>
+    <div class="tech-card fade-in">
+      <div class="tech-icon">🤖</div>
+      <div class="tech-label">Robotika</div>
+      <div class="tech-name">Honda ASIMO & Robot Industri</div>
+      <div class="tech-desc">Jepang memimpin robotika dunia dengan Honda ASIMO (robot humanoid pertama yang bisa berlari dan menaiki tangga), Pepper (robot sosial Softbank), dan Fanuc (robot industri terbesar dunia). 399 robot per 10.000 pekerja — tertinggi di dunia.</div>
+      <div class="tech-bar"><div class="tech-bar-label"><span>Pangsa Pasar Robot Global</span><span>47%</span></div><div class="tech-bar-track"><div class="tech-bar-fill" style="width:0" data-target="47"></div></div></div>
+    </div>
+    <div class="tech-card fade-in">
+      <div class="tech-icon">🚗</div>
+      <div class="tech-label">Otomotif</div>
+      <div class="tech-name">Toyota & Revolusi Hybrid</div>
+      <div class="tech-desc">Toyota Prius (1997) adalah mobil hybrid komersial pertama di dunia — mengubah industri otomotif selamanya. Toyota kini menjual 10+ juta kendaraan per tahun di seluruh dunia. Filosofi Kaizen menjadi standar manajemen global yang diadopsi pabrik di 100+ negara.</div>
+      <div class="tech-bar"><div class="tech-bar-label"><span>Penjualan Global Toyota</span><span>95%</span></div><div class="tech-bar-track"><div class="tech-bar-fill" style="width:0" data-target="95"></div></div></div>
+    </div>
+    <div class="tech-card fade-in">
+      <div class="tech-icon">💊</div>
+      <div class="tech-label">Medis & Riset</div>
+      <div class="tech-name">Nobel Science & Inovasi Medis</div>
+      <div class="tech-desc">Jepang meraih 28 Hadiah Nobel — mayoritas di bidang ilmu alam dan kimia. Shinya Yamanaka menemukan induced pluripotent stem cells (iPSC), merevolusi kedokteran regeneratif. Teknologi endoskop Olympus mendominasi pasar medis global hingga kini.</div>
+      <div class="tech-bar"><div class="tech-bar-label"><span>Paten Teknologi Medis Global</span><span>78%</span></div><div class="tech-bar-track"><div class="tech-bar-fill" style="width:0" data-target="78"></div></div></div>
+    </div>
+    <div class="tech-card fade-in">
+      <div class="tech-icon">🎮</div>
+      <div class="tech-label">Gaming</div>
+      <div class="tech-name">Nintendo, Sony & Video Game</div>
+      <div class="tech-desc">Jepang adalah tempat lahirnya industri video game modern. Nintendo (Game Boy, SNES, Switch), Sony PlayStation, dan Sega mendominasi dunia. Super Mario (1985) adalah karakter video game paling dikenal sepanjang sejarah umat manusia.</div>
+      <div class="tech-bar"><div class="tech-bar-label"><span>Kontribusi Industri Game Global</span><span>60%</span></div><div class="tech-bar-track"><div class="tech-bar-fill" style="width:0" data-target="60"></div></div></div>
+    </div>
+    <div class="tech-card fade-in">
+      <div class="tech-icon">🔬</div>
+      <div class="tech-label">Semikonduktor</div>
+      <div class="tech-name">Chip & Material Semikonduktor</div>
+      <div class="tech-desc">Tokyo Electron, Shin-Etsu Chemical, dan Sumco menguasai pasar bahan baku semikonduktor global. Jepang memproduksi 50%+ bahan baku chip dunia. Tanpa Jepang, produksi smartphone global bisa terhenti dalam hitungan minggu saja.</div>
+      <div class="tech-bar"><div class="tech-bar-label"><span>Kontrol Bahan Baku Chip Global</span><span>50%</span></div><div class="tech-bar-track"><div class="tech-bar-fill" style="width:0" data-target="50"></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- GEOGRAFIS -->
+<section id="geografis">
+  <div class="section-header fade-in">
+    <span class="eyebrow">🗾 Tanah & Posisi</span>
+    <h2 class="sec-title">Geografi Jepang<span class="jp">地理 · 日本列島 · Kepulauan yang Membentuk Bangsa</span></h2>
+    <div class="sec-line"></div>
+  </div>
+
+  <!-- INTRO NARASI -->
+  <p style="text-align:center;max-width:700px;margin:0 auto 50px;font-size:14px;color:var(--ink2);line-height:2;" class="fade-in">
+    Secara umum, Jepang adalah <strong>negara kepulauan</strong> dengan <strong>14.125 pulau</strong> yang membentang di Samudra Pasifik bagian barat. Total luas wilayahnya mencapai <strong>377.923,1 km²</strong> — namun di balik angka itu, tersimpan karakteristik fisik yang ekstrem dan menentukan jalannya sejarah Asia.
+  </p>
+
+  <!-- STATS ROW UPDATED -->
+  <div class="geo-stats fade-in">
+    <div class="geo-stat">
+      <span class="geo-stat-num">14.125</span>
+      <div class="geo-stat-lbl">Jumlah Pulau</div>
+    </div>
+    <div class="geo-stat">
+      <span class="geo-stat-num">377.923</span>
+      <div class="geo-stat-lbl">Total Luas (km²)</div>
+    </div>
+    <div class="geo-stat">
+      <span class="geo-stat-num">125 Jt</span>
+      <div class="geo-stat-lbl">Jumlah Penduduk</div>
+    </div>
+    <div class="geo-stat">
+      <span class="geo-stat-num">>80%</span>
+      <div class="geo-stat-lbl">Wilayah Pegunungan & Hutan</div>
+    </div>
+  </div>
+
+  <!-- GALERI PETA JEPANG -->
+  <div class="fade-in" style="max-width:960px;margin:50px auto 0;">
+
+    <div style="text-align:center;margin-bottom:30px;">
+      <span class="eyebrow">🗾 Peta Visual Jepang · 日本地図</span>
+      <h3 style="font-family:'Playfair Display',serif;font-size:22px;color:var(--ink);margin-top:12px;">Foto & Screenshot Peta Jepang</h3>
+    </div>
+
+    <!-- PETA UTAMA FULL WIDTH -->
+    <div style="background:white;border:2px solid var(--pink-mid);border-radius:20px;overflow:hidden;box-shadow:0 8px 30px var(--shadow);margin-bottom:20px;">
+      <div style="padding:14px 22px;background:linear-gradient(135deg,var(--pink-soft),white);border-bottom:2px solid var(--pink-mid);display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+        <span style="font-size:24px;">🗾</span>
+        <div style="flex:1;min-width:160px;">
+          <div style="font-family:'Playfair Display',serif;font-size:16px;color:var(--ink);font-weight:700;">Peta Jepang Keseluruhan — 日本全土</div>
+          <div style="font-size:10px;color:var(--gray);letter-spacing:2px;text-transform:uppercase;font-weight:600;margin-top:2px;">地図 · Peta Visual</div>
+        </div>
+        <a href="https://maps.google.com/?q=Japan" target="_blank" rel="noopener"
+           style="padding:8px 16px;background:linear-gradient(135deg,var(--sakura2),var(--sakura3));color:white;border-radius:20px;font-size:10px;font-weight:700;letter-spacing:1.5px;text-decoration:none;text-transform:uppercase;white-space:nowrap;box-shadow:0 4px 14px rgba(255,77,118,0.3);">
+          🔗 Buka Google Maps
+        </a>
+      </div>
+      <div class="img-box" style="height:360px;border-radius:0;border:none;background:linear-gradient(160deg,var(--cream),var(--pink-soft));">
+        
+        <img src="https://yaffblog.wordpress.com/wp-content/uploads/2026/04/69def331-7a7f-4ccc-929c-8c1286732db4.jpeg" alt="Peta Jepang" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;">
+        
+      </div>
+    </div>
+
+    <!-- 4 PETA PULAU -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px;margin-bottom:20px;">
+
+      <div style="background:white;border:2px solid var(--pink-mid);border-radius:20px;overflow:hidden;box-shadow:0 6px 20px var(--shadow);">
+        <div style="padding:11px 15px;background:linear-gradient(135deg,rgba(68,136,255,0.1),white);border-bottom:1.5px solid var(--pink-mid);display:flex;align-items:center;gap:8px;">
+          <span style="font-size:20px;">🔵</span>
+          <div style="flex:1;">
+            <div style="font-family:'Playfair Display',serif;font-size:14px;color:var(--ink);font-weight:700;">Hokkaido — 北海道</div>
+            <div style="font-size:9px;color:#4488FF;letter-spacing:2px;font-weight:700;text-transform:uppercase;">Pulau Paling Utara · 83.453 km²</div>
+          </div>
+          <a href="https://maps.google.com/?q=Hokkaido+Japan" target="_blank" style="font-size:9px;color:var(--sakura3);font-weight:700;text-decoration:none;border:1.5px solid var(--sakura);padding:3px 8px;border-radius:10px;">🔗</a>
+        </div>
+        <div class="img-box" style="height:170px;border-radius:0;border:none;background:linear-gradient(160deg,#f0f5ff,#dde8ff);">
+          <img src="https://yaffblog.wordpress.com/wp-content/uploads/2026/04/1c7c7e6c-acbd-4c6e-afee-3fb5a1e3aadd.jpeg" alt="Hokkaido" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div style="padding:9px 13px;font-size:11px;color:var(--ink2);line-height:1.65;">Subarktik · Sapporo · Furano · Shiretoko UNESCO</div>
+      </div>
+
+      <div style="background:white;border:2px solid var(--pink-mid);border-radius:20px;overflow:hidden;box-shadow:0 6px 20px var(--shadow);">
+        <div style="padding:11px 15px;background:linear-gradient(135deg,rgba(80,180,80,0.1),white);border-bottom:1.5px solid var(--pink-mid);display:flex;align-items:center;gap:8px;">
+          <span style="font-size:20px;">🟢</span>
+          <div style="flex:1;">
+            <div style="font-family:'Playfair Display',serif;font-size:14px;color:var(--ink);font-weight:700;">Honshu — 本州</div>
+            <div style="font-size:9px;color:#228B22;letter-spacing:2px;font-weight:700;text-transform:uppercase;">Pulau Terbesar · 227.962 km²</div>
+          </div>
+          <a href="https://maps.google.com/?q=Honshu+Japan" target="_blank" style="font-size:9px;color:var(--sakura3);font-weight:700;text-decoration:none;border:1.5px solid var(--sakura);padding:3px 8px;border-radius:10px;">🔗</a>
+        </div>
+        <div class="img-box" style="height:170px;border-radius:0;border:none;background:linear-gradient(160deg,#f0fff0,#d8f0d8);">
+          <img src="https://yaffblog.wordpress.com/wp-content/uploads/2026/04/de73ee52-27c5-415b-b313-ae5138d6f94e.jpeg" alt="Honshu" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div style="padding:9px 13px;font-size:11px;color:var(--ink2);line-height:1.65;">80% Populasi · Tokyo · Kyoto · Osaka · Gunung Fuji</div>
+      </div>
+
+      <div style="background:white;border:2px solid var(--pink-mid);border-radius:20px;overflow:hidden;box-shadow:0 6px 20px var(--shadow);">
+        <div style="padding:11px 15px;background:linear-gradient(135deg,rgba(220,180,0,0.1),white);border-bottom:1.5px solid var(--pink-mid);display:flex;align-items:center;gap:8px;">
+          <span style="font-size:20px;">🟡</span>
+          <div style="flex:1;">
+            <div style="font-family:'Playfair Display',serif;font-size:14px;color:var(--ink);font-weight:700;">Shikoku — 四国</div>
+            <div style="font-size:9px;color:#886600;letter-spacing:2px;font-weight:700;text-transform:uppercase;">Terkecil · 18.800 km²</div>
+          </div>
+          <a href="https://maps.google.com/?q=Shikoku+Japan" target="_blank" style="font-size:9px;color:var(--sakura3);font-weight:700;text-decoration:none;border:1.5px solid var(--sakura);padding:3px 8px;border-radius:10px;">🔗</a>
+        </div>
+        <div class="img-box" style="height:170px;border-radius:0;border:none;background:linear-gradient(160deg,#fffbe0,#f5e8a0);">
+          <img src="https://yaffblog.wordpress.com/wp-content/uploads/2026/04/ea77ef07-25cd-45a3-a724-d532653401e8.jpeg" alt="Shikoku" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div style="padding:9px 13px;font-size:11px;color:var(--ink2);line-height:1.65;">88 Kuil Buddhist · Ziarah Henro · Jeruk Yuzu Terbaik</div>
+      </div>
+
+      <div style="background:white;border:2px solid var(--pink-mid);border-radius:20px;overflow:hidden;box-shadow:0 6px 20px var(--shadow);">
+        <div style="padding:11px 15px;background:linear-gradient(135deg,rgba(220,60,60,0.09),white);border-bottom:1.5px solid var(--pink-mid);display:flex;align-items:center;gap:8px;">
+          <span style="font-size:20px;">🔴</span>
+          <div style="flex:1;">
+            <div style="font-family:'Playfair Display',serif;font-size:14px;color:var(--ink);font-weight:700;">Kyushu — 九州</div>
+            <div style="font-size:9px;color:#aa2222;letter-spacing:2px;font-weight:700;text-transform:uppercase;">Vulkanik Aktif · 36.782 km²</div>
+          </div>
+          <a href="https://maps.google.com/?q=Kyushu+Japan" target="_blank" style="font-size:9px;color:var(--sakura3);font-weight:700;text-decoration:none;border:1.5px solid var(--sakura);padding:3px 8px;border-radius:10px;">🔗</a>
+        </div>
+        <div class="img-box" style="height:170px;border-radius:0;border:none;background:linear-gradient(160deg,#fff0ee,#ffd4cc);">
+          <img src="https://yaffblog.wordpress.com/wp-content/uploads/2026/04/144a017f-a790-461a-9c15-4ca72f1d8910.jpeg" alt="Kyushu" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div style="padding:9px 13px;font-size:11px;color:var(--ink2);line-height:1.65;">Gunung Aso · Nagasaki · Onsen Berlimpah · Hakata Ramen</div>
+      </div>
+
+    </div>
+
+    <!-- BARIS BAWAH: OKINAWA + TOPOGRAFI -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;">
+
+      <div style="background:white;border:2px solid var(--pink-mid);border-radius:20px;overflow:hidden;box-shadow:0 6px 20px var(--shadow);">
+        <div style="padding:11px 15px;background:linear-gradient(135deg,rgba(180,60,220,0.09),white);border-bottom:1.5px solid var(--pink-mid);display:flex;align-items:center;gap:8px;">
+          <span style="font-size:20px;">🟣</span>
+          <div style="flex:1;">
+            <div style="font-family:'Playfair Display',serif;font-size:14px;color:var(--ink);font-weight:700;">Okinawa — 沖縄</div>
+            <div style="font-size:9px;color:#882299;letter-spacing:2px;font-weight:700;text-transform:uppercase;">Kepulauan Selatan · 150+ Pulau Kecil</div>
+          </div>
+          <a href="https://maps.google.com/?q=Okinawa+Japan" target="_blank" style="font-size:9px;color:var(--sakura3);font-weight:700;text-decoration:none;border:1.5px solid var(--sakura);padding:3px 8px;border-radius:10px;">🔗</a>
+        </div>
+        <div class="img-box" style="height:155px;border-radius:0;border:none;background:linear-gradient(160deg,#f8eeff,#e8ccff);">
+          <img src="https://yaffblog.wordpress.com/wp-content/uploads/2026/04/img_0588.jpeg" alt="Okinawa" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div style="padding:9px 13px;font-size:11px;color:var(--ink2);line-height:1.65;">Tropis · Blue Zone · Karate · Shuri Castle UNESCO</div>
+      </div>
+
+      <div style="background:white;border:2px solid var(--pink-mid);border-radius:20px;overflow:hidden;box-shadow:0 6px 20px var(--shadow);">
+        <div style="padding:11px 15px;background:linear-gradient(135deg,rgba(125,179,160,0.12),white);border-bottom:1.5px solid var(--pink-mid);display:flex;align-items:center;gap:8px;">
+          <span style="font-size:20px;">⛰️</span>
+          <div style="flex:1;">
+            <div style="font-family:'Playfair Display',serif;font-size:14px;color:var(--ink);font-weight:700;">Topografi — 地形図</div>
+            <div style="font-size:9px;color:var(--green);letter-spacing:2px;font-weight:700;text-transform:uppercase;">Peta Relief & Pegunungan Jepang</div>
+          </div>
+          <a href="https://maps.google.com/?q=Japan+terrain+map" target="_blank" style="font-size:9px;color:var(--sakura3);font-weight:700;text-decoration:none;border:1.5px solid var(--sakura);padding:3px 8px;border-radius:10px;">🔗</a>
+        </div>
+        <div class="img-box" style="height:155px;border-radius:0;border:none;background:linear-gradient(160deg,#f0faf5,#cceedf);">
+          <img src="https://yaffblog.wordpress.com/wp-content/uploads/2026/04/img_0589.png" alt="Topografi Jepang" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div style="padding:9px 13px;font-size:11px;color:var(--ink2);line-height:1.65;">82% Pegunungan · 110 Gunung Berapi Aktif · Ring of Fire</div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- TABEL 4 PULAU UTAMA -->
+  <div class="fade-in" style="max-width:960px;margin:50px auto 0;">
+    <div style="text-align:center;margin-bottom:28px;">
+      <span class="eyebrow">📋 Data 4 Pulau Utama</span>
+      <h3 style="font-family:'Playfair Display',serif;font-size:22px;color:var(--ink);margin-top:10px;">Hokkaido · Honshu · Shikoku · Kyushu</h3>
+    </div>
+    <div style="overflow-x:auto;border-radius:16px;border:2px solid var(--pink-mid);box-shadow:0 6px 24px var(--shadow);">
+      <table style="width:100%;border-collapse:collapse;font-size:13px;background:white;">
+        <thead>
+          <tr style="background:linear-gradient(135deg,var(--sakura2),var(--sakura3));color:white;">
+            <th style="padding:16px 20px;text-align:left;font-family:'Playfair Display',serif;font-size:14px;font-weight:700;letter-spacing:1px;">🗾 Pulau</th>
+            <th style="padding:16px 14px;text-align:center;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:700;">Luas (km²)</th>
+            <th style="padding:16px 14px;text-align:center;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:700;">Letak</th>
+            <th style="padding:16px 14px;text-align:center;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:700;">Iklim</th>
+            <th style="padding:16px 14px;text-align:left;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:700;">Karakteristik Utama</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1.5px solid var(--pink-mid);transition:background 0.2s;" onmouseover="this.style.background='var(--pink-soft)'" onmouseout="this.style.background='white'">
+            <td style="padding:16px 20px;">
+              <div style="display:flex;align-items:center;gap:10px;">
+                <span style="font-size:28px;">🔵</span>
+                <div>
+                  <div style="font-family:'Playfair Display',serif;font-size:16px;color:var(--ink);font-weight:700;">Hokkaido</div>
+                  <div style="font-size:10px;color:var(--sakura3);letter-spacing:2px;font-weight:700;text-transform:uppercase;">北海道</div>
+                </div>
+              </div>
+            </td>
+            <td style="padding:16px 14px;text-align:center;font-family:'Playfair Display',serif;font-size:16px;color:var(--gold);font-weight:700;">83.453</td>
+            <td style="padding:16px 14px;text-align:center;color:var(--ink2);font-weight:600;">Paling Utara</td>
+            <td style="padding:16px 14px;text-align:center;"><span style="background:rgba(100,160,255,0.15);color:#2255aa;padding:4px 10px;border-radius:12px;font-size:11px;font-weight:700;">❄️ Subarktik</span></td>
+            <td style="padding:16px 14px;color:var(--ink2);line-height:1.7;">Ladang lavender Furano, festival salju Sapporo, alam liar Shiretoko (UNESCO), seafood premium. Baru dikembangkan masif era Meiji (1869).</td>
+          </tr>
+          <tr style="border-bottom:1.5px solid var(--pink-mid);background:var(--cream);transition:background 0.2s;" onmouseover="this.style.background='var(--pink-soft)'" onmouseout="this.style.background='var(--cream)'">
+            <td style="padding:16px 20px;">
+              <div style="display:flex;align-items:center;gap:10px;">
+                <span style="font-size:28px;">🟢</span>
+                <div>
+                  <div style="font-family:'Playfair Display',serif;font-size:16px;color:var(--ink);font-weight:700;">Honshu</div>
+                  <div style="font-size:10px;color:var(--sakura3);letter-spacing:2px;font-weight:700;text-transform:uppercase;">本州 · Pulau Terbesar</div>
+                </div>
+              </div>
+            </td>
+            <td style="padding:16px 14px;text-align:center;font-family:'Playfair Display',serif;font-size:16px;color:var(--gold);font-weight:700;">227.962</td>
+            <td style="padding:16px 14px;text-align:center;color:var(--ink2);font-weight:600;">Tengah (Utama)</td>
+            <td style="padding:16px 14px;text-align:center;"><span style="background:rgba(100,200,100,0.15);color:#226622;padding:4px 10px;border-radius:12px;font-size:11px;font-weight:700;">🌸 Sedang</span></td>
+            <td style="padding:16px 14px;color:var(--ink2);line-height:1.7;">Rumah 80% penduduk Jepang. Tokyo, Osaka, Kyoto, Gunung Fuji (3.776m). Pusat politik, ekonomi, dan budaya Jepang sepanjang sejarah.</td>
+          </tr>
+          <tr style="border-bottom:1.5px solid var(--pink-mid);transition:background 0.2s;" onmouseover="this.style.background='var(--pink-soft)'" onmouseout="this.style.background='white'">
+            <td style="padding:16px 20px;">
+              <div style="display:flex;align-items:center;gap:10px;">
+                <span style="font-size:28px;">🟡</span>
+                <div>
+                  <div style="font-family:'Playfair Display',serif;font-size:16px;color:var(--ink);font-weight:700;">Shikoku</div>
+                  <div style="font-size:10px;color:var(--sakura3);letter-spacing:2px;font-weight:700;text-transform:uppercase;">四国 · Pulau Terkecil</div>
+                </div>
+              </div>
+            </td>
+            <td style="padding:16px 14px;text-align:center;font-family:'Playfair Display',serif;font-size:16px;color:var(--gold);font-weight:700;">18.800</td>
+            <td style="padding:16px 14px;text-align:center;color:var(--ink2);font-weight:600;">Selatan Honshu</td>
+            <td style="padding:16px 14px;text-align:center;"><span style="background:rgba(255,200,80,0.18);color:#886600;padding:4px 10px;border-radius:12px;font-size:11px;font-weight:700;">☀️ Hangat</span></td>
+            <td style="padding:16px 14px;color:var(--ink2);line-height:1.7;">Terkenal dengan ziarah 88 kuil Buddhist (Henro Pilgrimage). Topografi berbukit padat, produksi jeruk yuzu, dan mandarin terbaik Jepang.</td>
+          </tr>
+          <tr style="transition:background 0.2s;background:var(--cream);" onmouseover="this.style.background='var(--pink-soft)'" onmouseout="this.style.background='var(--cream)'">
+            <td style="padding:16px 20px;">
+              <div style="display:flex;align-items:center;gap:10px;">
+                <span style="font-size:28px;">🔴</span>
+                <div>
+                  <div style="font-family:'Playfair Display',serif;font-size:16px;color:var(--ink);font-weight:700;">Kyushu</div>
+                  <div style="font-size:10px;color:var(--sakura3);letter-spacing:2px;font-weight:700;text-transform:uppercase;">九州 · Vulkanik Aktif</div>
+                </div>
+              </div>
+            </td>
+            <td style="padding:16px 14px;text-align:center;font-family:'Playfair Display',serif;font-size:16px;color:var(--gold);font-weight:700;">36.782</td>
+            <td style="padding:16px 14px;text-align:center;color:var(--ink2);font-weight:600;">Paling Selatan</td>
+            <td style="padding:16px 14px;text-align:center;"><span style="background:rgba(255,100,80,0.13);color:#aa2200;padding:4px 10px;border-radius:12px;font-size:11px;font-weight:700;">🌋 Tropis-Hangat</span></td>
+            <td style="padding:16px 14px;color:var(--ink2);line-height:1.7;">Gunung Aso (kaldera terbesar dunia), Nagasaki (sejarah bom atom), gerbang ke Asia Kontinental. Aktif vulkanik, onsen berlimpah, keramik Arita.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:11px;color:var(--gray);text-align:center;margin-top:12px;font-weight:500;">📊 Sumber data: Badan Informasi Geospasial Jepang (GSI) · Total 4 Pulau Utama: ≈367.000 km² dari total 377.923 km² wilayah Jepang</p>
+  </div>
+
+  <!-- KARAKTERISTIK FISIK & DAMPAK HISTORIS -->
+  <div class="fade-in" style="max-width:960px;margin:50px auto 0;">
+    <div style="text-align:center;margin-bottom:28px;">
+      <span class="eyebrow">⛰️ Karakteristik Fisik Ekstrem</span>
+      <h3 style="font-family:'Playfair Display',serif;font-size:22px;color:var(--ink);margin-top:10px;">Topografi yang Mengubah Sejarah Asia</h3>
+    </div>
+
+    <!-- Topografi visual bar -->
+    <div style="background:white;border:2px solid var(--pink-mid);border-radius:20px;padding:32px;box-shadow:0 6px 24px var(--shadow);margin-bottom:24px;">
+      <p style="font-size:14px;line-height:2;color:var(--ink2);margin-bottom:24px;">
+        Jika kita melihat Jepang secara lebih dekat, negeri ini memiliki wilayah dengan <strong style="color:var(--sakura3);">karakteristik fisik yang ekstrem</strong>. Riset yang dilakukan oleh <em>Stanford International Cross-Culture Education</em> mengungkap bahwa lebih dari <strong style="color:var(--sakura3);">80% wilayah Jepang</strong> dipenuhi oleh pegunungan dan hutan lebat — hanya menyisakan <strong style="color:var(--sakura3);">kurang dari 20%</strong> lahan yang bisa dijadikan permukiman dan pertanian.
+      </p>
+      <!-- Pembagian Lahan Visual -->
+      <div style="margin-bottom:20px;">
+        <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--gray);font-weight:700;letter-spacing:1px;margin-bottom:8px;text-transform:uppercase;">
+          <span>Pegunungan & Hutan (>80%)</span>
+          <span>Permukiman & Pertanian (<20%)</span>
+        </div>
+        <div style="height:28px;border-radius:14px;overflow:hidden;display:flex;box-shadow:0 2px 10px var(--shadow);">
+          <div style="width:82%;background:linear-gradient(90deg,#7DB3A0,#5a9080);display:flex;align-items:center;padding-left:14px;">
+            <span style="font-size:12px;color:white;font-weight:700;">⛰️ 82% Pegunungan & Hutan</span>
+          </div>
+          <div style="width:18%;background:linear-gradient(90deg,var(--sakura2),var(--sakura3));display:flex;align-items:center;justify-content:center;">
+            <span style="font-size:11px;color:white;font-weight:700;">🏘️ 18%</span>
+          </div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-top:20px;">
+        <div style="background:var(--pink-soft);border-radius:14px;padding:16px;border:1.5px solid var(--sakura);">
+          <div style="font-size:24px;margin-bottom:6px;">🏔️</div>
+          <div style="font-size:11px;letter-spacing:2px;color:var(--sakura3);font-weight:700;text-transform:uppercase;margin-bottom:4px;">Daratan</div>
+          <div style="font-family:'Playfair Display',serif;font-size:18px;color:var(--ink);">374.834 km²</div>
+        </div>
+        <div style="background:var(--pink-soft);border-radius:14px;padding:16px;border:1.5px solid var(--sakura);">
+          <div style="font-size:24px;margin-bottom:6px;">🌊</div>
+          <div style="font-size:11px;letter-spacing:2px;color:var(--sakura3);font-weight:700;text-transform:uppercase;margin-bottom:4px;">Perairan Inland</div>
+          <div style="font-family:'Playfair Display',serif;font-size:18px;color:var(--ink);">3.091 km²</div>
+        </div>
+        <div style="background:var(--pink-soft);border-radius:14px;padding:16px;border:1.5px solid var(--sakura);">
+          <div style="font-size:24px;margin-bottom:6px;">🌲</div>
+          <div style="font-size:11px;letter-spacing:2px;color:var(--sakura3);font-weight:700;text-transform:uppercase;margin-bottom:4px;">Tutupan Hutan</div>
+          <div style="font-family:'Playfair Display',serif;font-size:18px;color:var(--ink);">~68% Luas Total</div>
+        </div>
+        <div style="background:var(--pink-soft);border-radius:14px;padding:16px;border:1.5px solid var(--sakura);">
+          <div style="font-size:24px;margin-bottom:6px;">🌾</div>
+          <div style="font-size:11px;letter-spacing:2px;color:var(--sakura3);font-weight:700;text-transform:uppercase;margin-bottom:4px;">Lahan Pertanian</div>
+          <div style="font-family:'Playfair Display',serif;font-size:18px;color:var(--ink);">~12% Luas Total</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAMPAK HISTORIS: Lebensraum Asia & Hakko Ichiu -->
+    <div style="background:linear-gradient(135deg,#3D1A24,#6B3346);border-radius:20px;padding:32px;color:white;box-shadow:0 8px 30px rgba(61,26,36,0.35);position:relative;overflow:hidden;">
+      <div style="position:absolute;top:-30px;right:-30px;font-size:120px;opacity:0.06;font-family:'Noto Serif JP',serif;">戦</div>
+      <div style="display:flex;align-items:flex-start;gap:14px;margin-bottom:20px;">
+        <span style="font-size:32px;flex-shrink:0;">⚠️</span>
+        <div>
+          <div style="font-size:10px;letter-spacing:4px;text-transform:uppercase;font-weight:700;color:var(--sakura2);margin-bottom:6px;">Dampak Geografis terhadap Sejarah Asia</div>
+          <div style="font-family:'Playfair Display',serif;font-size:20px;line-height:1.3;">Keterbatasan Lahan → <em style="color:var(--sakura2);">Lebensraum Asia</em></div>
+        </div>
+      </div>
+      <p style="font-size:13px;line-height:2;opacity:0.92;margin-bottom:18px;">
+        Keterbatasan lahan yang ekstrem ini berdampak langsung pada permasalahan <strong style="color:var(--gold2);">kepadatan dan kelangkaan sumber daya</strong> di Jepang. Pada abad ke-20, kondisi ini memaksa militer Jepang mencari <strong style="color:var(--sakura2);">"ruang hidup" (Lebensraum Asia)</strong> — yakni wilayah-wilayah dengan karakteristik geografis berlawanan: dataran rendah yang luas dan subur.
+      </p>
+      <p style="font-size:13px;line-height:2;opacity:0.92;margin-bottom:18px;">
+        Indonesia menjadi target utama karena dianggap sebagai <strong style="color:var(--gold2);">lumbung sumber daya alam</strong> (minyak, karet, pangan) yang tidak dimiliki pegunungan Jepang.
+      </p>
+      <div style="background:rgba(255,255,255,0.08);border-radius:14px;padding:20px;border-left:4px solid var(--sakura2);margin-bottom:18px;">
+        <div style="font-size:10px;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--sakura2);margin-bottom:8px;">Doktrin Hakko Ichiu (八紘一宇)</div>
+        <p style="font-size:13px;line-height:1.9;opacity:0.9;margin:0;">
+          Menggunakan doktrin <strong style="color:var(--gold2);">"Hakko Ichiu" (Dunia dalam Satu Atap)</strong>, Jepang menghapus batas-batas geografis negara lain dan memposisikan dirinya sebagai "saudara tua" yang memimpin seluruh Asia di bawah Kaisar — padahal tujuan sesungguhnya adalah mengamankan pasokan sumber daya untuk industri mereka.
+        </p>
+      </div>
+      <div style="background:rgba(255,255,255,0.08);border-radius:14px;padding:20px;border-left:4px solid var(--gold2);">
+        <div style="font-size:10px;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--gold2);margin-bottom:8px;">⚔️ Senjata Makan Tuan — Dampak bagi Indonesia</div>
+        <p style="font-size:13px;line-height:1.9;opacity:0.9;margin:0;">
+          Karena geografi Indonesia yang luas dan sulit dijaga sendiri, Jepang justru <strong style="color:var(--gold2);">melatih pemuda pribumi secara militer</strong> (PETA & Heiho) dan membagikan senjata. Ilmu dan senjata inilah yang kemudian <strong style="color:var(--sakura2);">berbalik digunakan bangsa Indonesia</strong> untuk merebut kemerdekaan dalam perang revolusi.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- GEO CARDS ORIGINAL (disempurnakan) -->
+  <div class="geo-grid fade-in" style="margin-top:50px">
+    <div class="geo-card">
+      <div class="geo-label">Posisi Strategis</div>
+      <div class="geo-value">Pasifik Barat — Hub Asia Timur</div>
+      <div class="geo-desc">Jepang berada di Lingkaran Api Pasifik, berbatasan dengan Laut Jepang, Laut Tiongkok Timur, dan Selat Korea. Posisi ini menjadikan Jepang hub maritim Asia Timur sekaligus rentan terhadap gempa dan tsunami dahsyat.</div>
+    </div>
+    <div class="geo-card">
+      <div class="geo-label">Kondisi Alam</div>
+      <div class="geo-value">Vulkanik & Rawan Bencana</div>
+      <div class="geo-desc">Gunung Fuji (3.776m) adalah simbol nasional. Jepang memiliki 10% gunung berapi aktif dunia dan 1.500+ gempa per tahun. Ini membentuk karakter bangsa yang luar biasa tangguh, disiplin, dan selalu siap dalam menghadapi bencana alam.</div>
+    </div>
+    <div class="geo-card">
+      <div class="geo-label">Sengketa Wilayah</div>
+      <div class="geo-value">Tiga Kepulauan Diperebutkan</div>
+      <div class="geo-desc">Kepulauan Senkaku (Diaoyu) diperebutkan dengan Tiongkok. Kepulauan Kuril dikuasai Rusia sejak PD2 dan belum ada perjanjian damai. Takeshima/Dokdo diperebutkan dengan Korea Selatan. Ketiganya terus mewarnai kebijakan luar negeri Jepang.</div>
+    </div>
+    <div class="geo-card">
+      <div class="geo-label">Iklim & Empat Musim</div>
+      <div class="geo-value">Variasi Iklim yang Indah</div>
+      <div class="geo-desc">Musim semi (sakura mekar — Maret/April), musim panas (festival panas — Juli/Agustus), musim gugur (daun momiji merah — Oktober/November), musim dingin (salju — Desember/Januari). Iklim bervariasi dari subarktik di Hokkaido hingga subtropis di Okinawa.</div>
+    </div>
+    <div class="geo-card">
+      <div class="geo-label">Okinawa & Kepulauan Selatan</div>
+      <div class="geo-value">Tropika di Ujung Selatan</div>
+      <div class="geo-desc">Okinawa (150+ pulau) berjarak 1.600 km dari Tokyo — lebih dekat ke Taiwan dan China. Beriklim tropis, terkenal dengan umur panjang penduduknya (<em>Blue Zone</em>), terumbu karang indah, dan seni bela diri Karate yang lahir di sini.</div>
+    </div>
+    <div class="geo-card">
+      <div class="geo-label">Krisis Lahan & Solusinya</div>
+      <div class="geo-value">Reklamasi & Teknologi Pertanian</div>
+      <div class="geo-desc">Menghadapi keterbatasan lahan, Jepang mengembangkan pertanian terasering di lereng bukit, reklamasi laut (Tokyo Bay), pertanian vertikal modern, dan teknologi pertanian presisi yang kini diekspor ke seluruh dunia sebagai solusi ketahanan pangan.</div>
+    </div>
+  </div>
+</section>
+
+<!-- QUIZ GAME -->
+<section id="quiz">
+  <div class="section-header fade-in">
+    <span class="eyebrow">🎯 Uji Pengetahuanmu</span>
+    <h2 class="sec-title">Quiz Master Japan<span class="jp">クイズ · Seberapa Paham Kamu tentang Jepang?</span></h2>
+    <div class="sec-line"></div>
+  </div>
+  <div class="quiz-wrap fade-in">
+    <p class="quiz-intro">Tantang dirimu dengan 10 pertanyaan seputar Jepang — sejarah, budaya, geopolitik, dan geografi. Streak 3 jawaban berturut-turut dapat bonus poin! 🔥</p>
+    <div id="quiz-start">
+      <span class="qs-emoji">🎌</span>
+      <div class="qs-title">Siap Berlaga?</div>
+      <div class="qs-sub">Pilih Tingkat Kesulitan</div>
+      <div class="diff-row">
+        <button class="diff-btn active" data-d="easy" onclick="setDiff('easy',this)">🌸 Mudah</button>
+        <button class="diff-btn" data-d="medium" onclick="setDiff('medium',this)">⚔️ Sedang</button>
+        <button class="diff-btn" data-d="hard" onclick="setDiff('hard',this)">🔥 Sulit</button>
+      </div>
+      <button class="btn-pink" onclick="startQuiz()">Mulai Quiz 🎯</button>
+    </div>
+    <div id="quiz-game">
+      <div class="quiz-hud">
+        <div class="hud-item"><div class="hud-lbl">Soal</div><div class="hud-val" id="hud-q">1/10</div></div>
+        <div class="hud-item"><div class="hud-lbl">Skor</div><div class="hud-val" id="hud-score">0</div></div>
+        <div class="hud-item"><div class="hud-lbl">Waktu</div><div class="hud-val" id="hud-timer">20</div></div>
+        <div class="hud-item"><div class="hud-lbl">Streak</div><div class="hud-val" id="hud-streak">🔥0</div></div>
+      </div>
+      <div class="quiz-prog"><div class="quiz-prog-fill" id="quiz-prog" style="width:10%"></div></div>
+      <div class="quiz-qcard">
+        <div class="quiz-qnum" id="quiz-qnum">PERTANYAAN 1</div>
+        <div class="quiz-qtext" id="quiz-qtext"></div>
+        <div class="quiz-qhint" id="quiz-qhint"></div>
+      </div>
+      <div class="quiz-opts" id="quiz-opts"></div>
+      <div class="quiz-feedback" id="quiz-feedback"></div>
+      <button class="quiz-next" id="quiz-next" onclick="nextQ()">Lanjut →</button>
+    </div>
+    <div id="quiz-result">
+      <div class="result-box">
+        <div class="result-emoji" id="res-emoji">🏆</div>
+        <div class="result-title" id="res-title">Luar Biasa!</div>
+        <div class="result-score" id="res-score">10/10</div>
+        <div class="result-stars" id="res-stars">⭐⭐⭐⭐⭐</div>
+        <div class="result-msg" id="res-msg"></div>
+        <div class="result-breakdown">
+          <div class="rb-item"><div class="rb-num" id="rb-c">0</div><div class="rb-label">Benar</div></div>
+          <div class="rb-item"><div class="rb-num" id="rb-w">0</div><div class="rb-label">Salah</div></div>
+          <div class="rb-item"><div class="rb-num" id="rb-t">0s</div><div class="rb-label">Rata-rata Waktu</div></div>
+        </div>
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+          <button class="btn-pink" onclick="restartQuiz()">🔄 Main Lagi</button>
+          <a href="#kanji-quiz" class="btn-outline">Coba Kanji Quiz →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KANJI QUIZ -->
+<section id="kanji-quiz">
+  <div class="section-header fade-in">
+    <span class="eyebrow">漢 Kanji Quiz</span>
+    <h2 class="sec-title">Tebak Kanji Jepang!<span class="jp">漢字クイズ · Baca Simbol Kuno</span></h2>
+    <div class="sec-line"></div>
+  </div>
+  <div class="kanji-wrap fade-in">
+    <div id="kq-start">
+      <div class="kq-card">
+        <span style="font-size:80px;margin-bottom:14px;display:block">漢</span>
+        <div class="qs-title">Kanji Quiz!</div>
+        <div class="qs-sub">Tebak Arti 10 Kanji Penting Jepang</div>
+        <p style="font-size:13px;color:var(--ink2);margin-bottom:28px;line-height:1.9;">
+          Kanji adalah salah satu dari 3 sistem tulisan Jepang. Ada <strong>2.136 kanji wajib</strong> yang harus dikuasai setiap warga Jepang. Seberapa banyak yang kamu tahu?
+        </p>
+        <button class="btn-pink" onclick="startKanjiQuiz()">Mulai Kanji Quiz 漢</button>
+      </div>
+    </div>
+    <div id="kq-game">
+      <div class="kq-card">
+        <div style="display:flex;justify-content:space-between;margin-bottom:10px;font-size:11px;color:var(--gray);font-weight:600">
+          <span id="kq-num">1/10</span>
+          <span id="kq-score2">Skor: 0</span>
+        </div>
+        <span class="kq-symbol" id="kq-symbol">日</span>
+        <div class="kq-question" id="kq-question">Apa arti kanji ini dalam bahasa Indonesia?</div>
+        <div class="kq-opts" id="kq-opts"></div>
+        <div id="kq-feedback" style="min-height:24px;font-size:13px;font-weight:700;margin-top:10px;line-height:1.5;"></div>
+        <div class="kq-progress" id="kq-progress"></div>
+      </div>
+    </div>
+    <div id="kq-result">
+      <div class="kq-card">
+        <span style="font-size:70px;display:block;margin-bottom:14px" id="kq-res-emoji">🏆</span>
+        <div class="qs-title" id="kq-res-title">Master Kanji!</div>
+        <div style="font-family:'Dancing Script',cursive;font-size:56px;color:var(--sakura3);margin:10px 0" id="kq-res-score">10/10</div>
+        <div style="font-size:13px;color:var(--ink2);line-height:1.8;margin-bottom:28px" id="kq-res-msg"></div>
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+          <button class="btn-pink" onclick="restartKanji()">🔄 Main Lagi</button>
+          <a href="#wordgame" class="btn-outline">Word Scramble →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORD SCRAMBLE GAME -->
+<section id="wordgame">
+  <div class="section-header fade-in">
+    <span class="eyebrow">🧩 Mini Game Bonus</span>
+    <h2 class="sec-title">Word Scramble<span class="jp">言葉パズル · Susun Kata Kunci Jepang</span></h2>
+    <div class="sec-line"></div>
+  </div>
+  <div class="wg-wrap fade-in">
+    <div id="wg-start">
+      <span style="font-size:60px;display:block;margin-bottom:14px">🧩</span>
+      <div class="wg-title">Word Scramble</div>
+      <div class="wg-sub">Susun Huruf Menjadi Kata Kunci Jepang</div>
+      <p style="font-size:13px;color:var(--ink2);margin-bottom:28px;line-height:1.9;max-width:400px;margin-left:auto;margin-right:auto">
+        Kamu akan diberikan huruf-huruf acak dari istilah penting Jepang. Susun kembali menjadi kata yang benar! Ada <strong>8 kata</strong> yang harus disusun — setiap kata ada petunjuknya.
+      </p>
+      <button class="btn-pink" onclick="startWordGame()">Mulai Game ⚔️</button>
+    </div>
+    <div id="wg-play" style="display:none;">
+      <div class="wg-hud">
+        <div class="wg-hud-box"><div class="wg-hud-num" id="wg-score">0</div><div class="wg-hud-lbl">Skor</div></div>
+        <div class="wg-hud-box"><div class="wg-hud-num" id="wg-current">1/8</div><div class="wg-hud-lbl">Kata</div></div>
+        <div class="wg-hud-box"><div class="wg-hud-num" id="wg-lives">❤️❤️❤️</div><div class="wg-hud-lbl">Nyawa</div></div>
+      </div>
+      <div class="wg-scrambled" id="wg-scrambled">?????</div>
+      <div class="wg-clue" id="wg-clue">Petunjuk muncul di sini...</div>
+      <div class="wg-tiles" id="wg-tiles"></div>
+      <div class="wg-input-row">
+        <input type="text" class="wg-input" id="wg-answer" placeholder="KETIK / KLIK" onkeydown="if(event.key==='Enter')checkWord()">
+        <button class="wg-submit" onclick="checkWord()">✓</button>
+      </div>
+      <div class="wg-feedback" id="wg-feedback"></div>
+      <button class="wg-skip" onclick="skipWord()">⏭ Skip →</button>
+    </div>
+    <div id="wg-result" style="display:none;">
+      <span style="font-size:60px;display:block;margin-bottom:14px" id="wg-res-emoji">🏆</span>
+      <div class="wg-title" id="wg-res-title">Legenda Kata!</div>
+      <div style="font-family:'Dancing Script',cursive;font-size:56px;color:var(--sakura3);margin:10px 0" id="wg-res-score">80/80</div>
+      <div style="font-size:13px;color:var(--ink2);margin-bottom:28px;line-height:1.8" id="wg-res-msg"></div>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+        <button class="btn-pink" onclick="restartWord()">🔄 Main Lagi</button>
+        <a href="#hero" class="btn-outline">Kembali ke Atas ↑</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-kanji">日本</span>
+  <div class="footer-sakura">🌸 🌸 🌸 🌸 🌸</div>
+  <div class="footer-text">Presentasi Sejarah · Jepang · Negeri Matahari Terbit</div>
+  <div class="footer-credit">Dibuat dengan ❤️ dan 🌸 | Semoga Mendapat Nilai Terbaik! 頑張ってください！</div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-ov" id="modal" onclick="closeModal(event)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModalBtn()">✕</button>
+    <div class="modal-eye" id="modal-eye">INFO</div>
+    <div class="modal-title" id="modal-title">Judul</div>
+    <div class="modal-divider"></div>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+</div>
+
+<script>
+/* ── LOADER ── */
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    const l = document.getElementById('loader');
+    l.style.opacity = '0';
+    setTimeout(() => l.style.display = 'none', 800);
+  }, 2200);
+});
+
+/* ── NAV HAMBURGER ── */
+function toggleNav() {
+  const links = document.getElementById('nav-links');
+  const burger = document.getElementById('nav-hamburger');
+  links.classList.toggle('open');
+  burger.classList.toggle('open');
+}
+function closeNav() {
+  document.getElementById('nav-links').classList.remove('open');
+  document.getElementById('nav-hamburger').classList.remove('open');
+}
+
+/* ── NAV PROGRESS & BACK TO TOP ── */
+window.addEventListener('scroll', () => {
+  const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+  document.getElementById('nav-progress').style.width = scrolled + '%';
+  const bt = document.getElementById('back-top');
+  if (window.scrollY > 400) bt.classList.add('show');
+  else bt.classList.remove('show');
+});
+
+/* ── SAKURA PETALS ── */
+(function() {
+  const container = document.getElementById('sakura-wrap');
+  for (let i = 0; i < 20; i++) {
+    const petal = document.createElement('div');
+    petal.className = 'petal';
+    const size = 10 + Math.random() * 14;
+    const colors = ['#FFB7C5','#FF87A2','#FFD6E4','#ff9fb5','#FFC0CB'];
+    const color = colors[Math.floor(Math.random() * colors.length)];
+    petal.innerHTML = `<svg width="${size}" height="${size}" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="10" cy="10" rx="9" ry="5" fill="${color}" opacity="0.85" transform="rotate(${Math.random()*360} 10 10)"/>
+    </svg>`;
+    petal.style.left = Math.random() * 100 + '%';
+    petal.style.animationDuration = (5 + Math.random() * 10) + 's';
+    petal.style.animationDelay = (Math.random() * 10) + 's';
+    container.appendChild(petal);
+  }
+})();
+
+/* ── FADE IN ── */
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+/* ── TECH BARS ── */
+const barObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const bars = e.target.querySelectorAll('.tech-bar-fill[data-target]');
+      bars.forEach(bar => {
+        const target = bar.dataset.target;
+        setTimeout(() => bar.style.width = target + '%', 200);
+      });
+    }
+  });
+}, { threshold: 0.2 });
+document.querySelectorAll('.tech-card').forEach(el => barObserver.observe(el));
+
+/* ── TIMELINE TOGGLE ── */
+function togglePeriod(el) {
+  el.classList.toggle('open');
+  const hint = el.querySelector('.period-toggle-hint');
+  if (hint) hint.textContent = el.classList.contains('open') ? '▲ Klik untuk tutup' : '▼ Klik untuk detail';
+}
+
+/* ── IMAGE UPLOAD HELPERS ── */
+function previewImg(input, imgId, phId) {
+  const file = input.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    const img = document.getElementById(imgId);
+    const ph = document.getElementById(phId);
+    img.src = e.target.result;
+    img.style.display = 'block';
+    if (ph) ph.style.display = 'none';
+  };
+  reader.readAsDataURL(file);
+}
+
+function triggerImgUpload(imgId) {
+  // Find the input near this element
+  const img = document.getElementById(imgId);
+  if (img) {
+    const parent = img.closest('.img-box');
+    if (parent) {
+      const inp = parent.querySelector('input[type="file"]');
+      if (inp) inp.click();
+    }
+  }
+}
+
+function previewWisataImg(input, imgId, phId, wrapId) {
+  const file = input.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    const img = document.getElementById(imgId);
+    const ph = document.getElementById(phId);
+    const wrap = document.getElementById(wrapId);
+    img.src = e.target.result;
+    img.style.display = 'block';
+    img.style.position = 'absolute';
+    img.style.inset = '0';
+    img.style.width = '100%';
+    img.style.height = '100%';
+    img.style.objectFit = 'cover';
+    if (ph) ph.style.display = 'none';
+    if (wrap) wrap.classList.add('has-image');
+  };
+  reader.readAsDataURL(file);
+}
+
+function handleWisataClick(event, imgId, title, eye, body) {
+  // If clicking on the file input area, don't open modal
+  if (event.target.tagName === 'INPUT') return;
+  // If image is loaded and click is on placeholder, trigger upload
+  const img = document.getElementById(imgId);
+  if (!img || img.style.display === 'none') {
+    // open file dialog
+    const fileId = 'file-' + imgId.replace('img-','');
+    const fileInput = document.getElementById(fileId);
+    if (fileInput) { fileInput.click(); return; }
+  }
+  // Otherwise open modal
+  openModal(title, eye, body);
+}
+
+/* ── MODAL ── */
+function openModal(title, eye, body) {
+  document.getElementById('modal-title').textContent = title;
+  document.getElementById('modal-eye').textContent = eye;
+  document.getElementById('modal-body').innerHTML = body;
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModalBtn() {
+  document.getElementById('modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function closeModal(e) {
+  if (e.target === document.getElementById('modal')) closeModalBtn();
+}
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModalBtn(); });
+
+/* ════════════════════════
+   QUIZ GAME
+════════════════════════ */
+const allQ = [
+  // MUDAH
+  { d:'easy', q:'Apa arti "Sakoku" dalam kebijakan luar negeri Jepang?', opts:['Ekspansi Militer','Isolasi Total dari Dunia Luar','Aliansi dengan China','Reformasi Ekonomi'], ans:1, explain:'Sakoku (鎖国) berarti "negara terkunci" — kebijakan 250 tahun menutup diri dari dunia luar agar terhindar dari kolonisasi.' },
+  { d:'easy', q:'Siapa yang disebut "Shogun" dalam sejarah Jepang?', opts:['Kaisar Jepang','Pemimpin Agama Shinto','Panglima Militer Tertinggi','Pendeta Buddha'], ans:2, explain:'Shogun adalah pemimpin militer tertinggi yang dalam kenyataannya lebih berkuasa dari Kaisar selama berabad-abad Jepang.' },
+  { d:'easy', q:'Apa nama badai legendaris yang menghancurkan armada Mongol dua kali?', opts:['Tsunami','Kamikaze','Taifun Besar','Kurofune'], ans:1, explain:'Kamikaze (神風) berarti "Angin Dewa" — badai dahsyat yang menghancurkan armada Mongol Kubilai Khan pada 1274 dan 1281.' },
+  { d:'easy', q:'Apa sebutan untuk bunga ikonik Jepang yang mekar tiap musim semi?', opts:['Bonsai','Ikebana','Sakura','Kiku'], ans:2, explain:'Sakura (桜) adalah simbol budaya terpenting Jepang, melambangkan keindahan yang fana dan momen yang harus dihargai sepenuh hati.' },
+  { d:'easy', q:'Di kota mana Kaisar Jepang berkedudukan sekarang ini?', opts:['Kyoto','Nara','Osaka','Tokyo'], ans:3, explain:'Kaisar Jepang tinggal di Istana Kekaisaran Tokyo sejak ibu kota dipindah dari Kyoto pada tahun 1869 saat Restorasi Meiji.' },
+  // SEDANG
+  { d:'medium', q:'Filosofi "Wakon Yosai" pada era Meiji berarti...', opts:['Perang habis-habisan dengan Barat','Isolasi total dari Barat','Serap teknologi Barat, pertahankan jiwa Jepang','Kolonialisasi Asia Tenggara'], ans:2, explain:'Wakon Yosai (和魂洋才) adalah strategi genius: ambil teknologi Barat tapi pertahankan identitas dan nilai-nilai budaya Jepang.' },
+  { d:'medium', q:'Isi Pasal 9 Konstitusi Jepang 1947 adalah tentang?', opts:['Hak memilih warga negara','Larangan memiliki militer ofensif','Kebebasan beragama','Hak ekonomi rakyat'], ans:1, explain:'Pasal 9 melarang Jepang mempertahankan angkatan perang ofensif — keputusan bersejarah dan unik di dunia pasca Perang Dunia 2.' },
+  { d:'medium', q:'Aliansi strategis QUAD terdiri dari negara mana saja?', opts:['Jepang, Korea, China, AS','Jepang, AS, Australia, India','Jepang, AS, UK, Perancis','Jepang, ASEAN, AS, EU'], ans:1, explain:'QUAD terdiri dari Jepang, Amerika Serikat, Australia, dan India — aliansi informal untuk menyeimbangkan pengaruh Tiongkok di kawasan.' },
+  { d:'medium', q:'Sistem produksi Toyota yang revolusioner disebut?', opts:['Bushido System','Lean Production','Kaizen & Just-in-Time','Toyota Classic Way'], ans:2, explain:'Kaizen (改善) berarti "perbaikan terus-menerus" dan Just-in-Time adalah prinsip produksi Toyota yang diadopsi pabrik di seluruh dunia.' },
+  { d:'medium', q:'Studio animasi Jepang paling terkenal dan berpengaruh di dunia adalah?', opts:['Toei Animation','Madhouse Studio','Studio Ghibli','A-1 Pictures'], ans:2, explain:'Studio Ghibli didirikan Hayao Miyazaki — meraih Oscar dan diakui sebagai salah satu pembuat film animasi terbaik sepanjang masa.' },
+  // SULIT
+  { d:'hard', q:'Tahun berapa Jepang pertama kali mengalahkan kekuatan Eropa (Rusia)?', opts:['1895','1899','1905','1910'], ans:2, explain:'Perang Rusia-Jepang 1904–1905: Jepang mengalahkan Rusia di Tsushima dan Mukden — pertama kalinya bangsa Asia mengalahkan Eropa modern.' },
+  { d:'hard', q:'FOIP dalam strategi geopolitik Jepang singkatan dari apa?', opts:['Far-Out Indo-Pacific','Free and Open Indo-Pacific','Federal Order Indo-Pacific','Force Operation Indo-Pacific'], ans:1, explain:'FOIP (Free and Open Indo-Pacific) adalah visi geopolitik PM Abe Shinzo untuk menjaga kebebasan navigasi dan menyeimbangkan dominasi Tiongkok.' },
+  { d:'hard', q:'Berapa tahun yang dibutuhkan Jepang untuk menjadi ekonomi terbesar kedua dunia setelah bom atom?', opts:['13 tahun','23 tahun','30 tahun','45 tahun'], ans:1, explain:'Dari bom atom 1945 hingga menjadi ekonomi #2 dunia tahun 1968 = 23 tahun. Inilah "Mujizat Ekonomi Jepang" yang dikagumi dunia.' },
+  { d:'hard', q:'Ideologi militerisme Jepang yang mendorong ekspansi ke Asia disebut?', opts:['Wakon Yosai','Bushido','Hakko Ichiu','Kokutai'], ans:2, explain:'Hakko Ichiu (八紘一宇) berarti "dunia di bawah satu atap" — ideologi yang membenarkan ekspansi Jepang ke seluruh Asia Timur.' },
+  { d:'hard', q:'Pelabuhan satu-satunya yang dibuka Jepang selama Sakoku untuk perdagangan terbatas adalah?', opts:['Osaka','Nagasaki — Dejima','Edo (Tokyo)','Yokohama'], ans:1, explain:'Dejima di Nagasaki adalah pulau buatan kecil tempat pedagang Belanda dan Tiongkok berdagang — satu-satunya jendela Jepang ke dunia selama 200+ tahun.' },
+];
+
+let qCurDiff = 'easy', qList = [], qIdx = 0, qScore = 0, qStreak = 0, qCorrect = 0, qWrong = 0, qTimer = null, qTimeLeft = 20, qTimes = [];
+
+function shuffle(a){ return [...a].sort(()=>Math.random()-0.5); }
+
+function setDiff(d, btn) {
+  qCurDiff = d;
+  document.querySelectorAll('.diff-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+function startQuiz() {
+  qList = shuffle(allQ.filter(q=>q.d===qCurDiff)).slice(0,10);
+  qIdx = 0; qScore = 0; qStreak = 0; qCorrect = 0; qWrong = 0; qTimes = [];
+  document.getElementById('hud-score').textContent = 0;
+  document.getElementById('hud-streak').textContent = '🔥0';
+  document.getElementById('quiz-start').style.display = 'none';
+  document.getElementById('quiz-game').style.display = 'block';
+  document.getElementById('quiz-result').style.display = 'none';
+  loadQ();
+}
+
+function loadQ() {
+  const q = qList[qIdx];
+  document.getElementById('hud-q').textContent = `${qIdx+1}/${qList.length}`;
+  document.getElementById('quiz-qnum').textContent = `PERTANYAAN ${qIdx+1}`;
+  document.getElementById('quiz-qtext').textContent = q.q;
+  document.getElementById('quiz-qhint').textContent = `Kategori: ${q.d==='easy'?'Mudah 🌸':q.d==='medium'?'Sedang ⚔️':'Sulit 🔥'}`;
+  document.getElementById('quiz-prog').style.width = ((qIdx+1)/qList.length*100)+'%';
+  document.getElementById('quiz-feedback').style.display = 'none';
+  document.getElementById('quiz-next').style.display = 'none';
+
+  const shuffledOpts = shuffle(q.opts.map((o,i)=>({o,i})));
+  const optsEl = document.getElementById('quiz-opts');
+  optsEl.innerHTML = '';
+  shuffledOpts.forEach(({o, i}) => {
+    const btn = document.createElement('button');
+    btn.className = 'quiz-opt';
+    btn.textContent = o;
+    btn.onclick = () => pickAnswer(btn, i, q.ans, q.explain);
+    optsEl.appendChild(btn);
+  });
+
+  qTimeLeft = qCurDiff==='easy'?25:qCurDiff==='medium'?20:15;
+  document.getElementById('hud-timer').textContent = qTimeLeft;
+  clearInterval(qTimer);
+  qTimer = setInterval(()=>{
+    qTimeLeft--;
+    document.getElementById('hud-timer').textContent = qTimeLeft;
+    document.getElementById('hud-timer').style.color = qTimeLeft<=5?'#ef5350':'var(--sakura3)';
+    if(qTimeLeft<=0){ clearInterval(qTimer); autoFail(q.ans, q.explain); }
+  },1000);
+}
+
+function pickAnswer(btn, sel, ans, explain) {
+  clearInterval(qTimer);
+  const spent = (qCurDiff==='easy'?25:qCurDiff==='medium'?20:15) - qTimeLeft;
+  qTimes.push(spent);
+  document.querySelectorAll('.quiz-opt').forEach(b=>b.disabled=true);
+
+  if(sel===ans){
+    btn.classList.add('correct');
+    qStreak++; const bonus = qStreak>=3?20:10; qScore+=bonus; qCorrect++;
+    showFb(`✅ BENAR! +${bonus} poin${qStreak>=3?' 🔥 STREAK BONUS!':''} — ${explain}`, true);
+  } else {
+    btn.classList.add('wrong');
+    qStreak=0; qWrong++;
+    document.querySelectorAll('.quiz-opt').forEach(b=>{
+      if(b.textContent===qList[qIdx].opts[ans]) b.classList.add('correct');
+    });
+    showFb(`❌ SALAH. Jawaban: "${qList[qIdx].opts[ans]}" — ${explain}`, false);
+  }
+  document.getElementById('hud-score').textContent = qScore;
+  document.getElementById('hud-streak').textContent = `🔥${qStreak}`;
+  document.getElementById('quiz-next').style.display = 'block';
+}
+
+function autoFail(ans, explain) {
+  clearInterval(qTimer);
+  document.querySelectorAll('.quiz-opt').forEach(b=>{
+    b.disabled=true;
+    if(b.textContent===qList[qIdx].opts[ans]) b.classList.add('correct');
+  });
+  qStreak=0; qWrong++;
+  document.getElementById('hud-streak').textContent='🔥0';
+  showFb(`⏰ WAKTU HABIS! Jawaban: "${qList[qIdx].opts[ans]}" — ${explain}`, false);
+  qTimes.push(0);
+  document.getElementById('quiz-next').style.display='block';
+}
+
+function showFb(msg, ok) {
+  const el = document.getElementById('quiz-feedback');
+  el.textContent = msg; el.style.display='block';
+  el.style.borderLeftColor = ok?'#4CAF50':'#ef5350';
+}
+
+function nextQ() {
+  qIdx++;
+  if(qIdx>=qList.length) endQuiz();
+  else loadQ();
+}
+
+function endQuiz() {
+  clearInterval(qTimer);
+  document.getElementById('quiz-game').style.display='none';
+  document.getElementById('quiz-result').style.display='block';
+  const pct = Math.round(qCorrect/qList.length*100);
+  const avg = qTimes.length ? Math.round(qTimes.reduce((a,b)=>a+b,0)/qTimes.length) : 0;
+  document.getElementById('res-score').textContent = `${qCorrect}/${qList.length}`;
+  document.getElementById('rb-c').textContent = qCorrect;
+  document.getElementById('rb-w').textContent = qWrong;
+  document.getElementById('rb-t').textContent = avg+'s';
+  let em, ti, st, ms;
+  if(pct>=90){ em='🏆'; ti='Master Jepang!'; st='⭐⭐⭐⭐⭐'; ms='Luar biasa! Pengetahuanmu tentang Jepang sangat mendalam. Kamu benar-benar layak menjadi duta budaya Jepang!'; }
+  else if(pct>=70){ em='🥇'; ti='Sangat Bagus!'; st='⭐⭐⭐⭐'; ms='Kamu tahu banyak hal tentang Jepang! Sedikit lagi latihan dan kamu pasti bisa menjadi master sejati.'; }
+  else if(pct>=50){ em='🎌'; ti='Cukup Baik!'; st='⭐⭐⭐'; ms='Pengetahuan dasarmu sudah oke! Coba baca lagi bagian materi yang belum kamu kuasai.'; }
+  else{ em='📚'; ti='Perlu Belajar Lagi!'; st='⭐⭐'; ms='Jangan menyerah! Baca seluruh materi presentasi ini lagi, lalu coba quiz-nya. Jepang sangat seru untuk dipelajari!'; }
+  document.getElementById('res-emoji').textContent=em;
+  document.getElementById('res-title').textContent=ti;
+  document.getElementById('res-stars').textContent=st;
+  document.getElementById('res-msg').textContent=ms;
+}
+
+function restartQuiz() {
+  document.getElementById('quiz-start').style.display='block';
+  document.getElementById('quiz-game').style.display='none';
+  document.getElementById('quiz-result').style.display='none';
+}
+
+/* ════════════════════════
+   KANJI QUIZ
+════════════════════════ */
+const kanjiData = [
+  { k:'日', ans:'Matahari / Hari', opts:['Matahari / Hari','Air','Api','Bulan'] },
+  { k:'月', ans:'Bulan / Kalender', opts:['Bulan / Kalender','Matahari','Bintang','Langit'] },
+  { k:'本', ans:'Asal / Buku', opts:['Asal / Buku','Langit','Tanah','Pohon'] },
+  { k:'山', ans:'Gunung', opts:['Gunung','Sungai','Laut','Awan'] },
+  { k:'水', ans:'Air', opts:['Air','Api','Tanah','Angin'] },
+  { k:'火', ans:'Api', opts:['Api','Air','Tanah','Es'] },
+  { k:'人', ans:'Orang / Manusia', opts:['Orang / Manusia','Tangan','Kaki','Mata'] },
+  { k:'大', ans:'Besar', opts:['Besar','Kecil','Tinggi','Lebar'] },
+  { k:'小', ans:'Kecil', opts:['Kecil','Besar','Pendek','Sempit'] },
+  { k:'木', ans:'Pohon / Kayu', opts:['Pohon / Kayu','Rumput','Bunga','Batu'] },
+  { k:'花', ans:'Bunga', opts:['Bunga','Daun','Biji','Akar'] },
+  { k:'空', ans:'Langit / Kosong', opts:['Langit / Kosong','Bumi','Laut','Gunung'] },
+  { k:'愛', ans:'Cinta / Kasih Sayang', opts:['Cinta / Kasih Sayang','Benci','Sedih','Senang'] },
+];
+
+let kqList=[], kqIdx=0, kqScore2=0, kqResults=[];
+
+function startKanjiQuiz(){
+  kqList = shuffle(kanjiData).slice(0,10);
+  kqIdx=0; kqScore2=0; kqResults=[];
+  document.getElementById('kq-start').style.display='none';
+  document.getElementById('kq-game').style.display='block';
+  document.getElementById('kq-result').style.display='none';
+  loadKanji();
+}
+
+function loadKanji(){
+  const item = kqList[kqIdx];
+  document.getElementById('kq-num').textContent=`${kqIdx+1}/${kqList.length}`;
+  document.getElementById('kq-score2').textContent=`Skor: ${kqScore2}`;
+  document.getElementById('kq-symbol').textContent=item.k;
+  document.getElementById('kq-question').textContent='Apa arti kanji ini dalam bahasa Indonesia?';
+  document.getElementById('kq-feedback').textContent='';
+
+  const shuffled = shuffle(item.opts);
+  const optsEl = document.getElementById('kq-opts');
+  optsEl.innerHTML='';
+  shuffled.forEach(opt=>{
+    const btn = document.createElement('button');
+    btn.className='kq-opt';
+    btn.textContent=opt;
+    btn.onclick=()=>pickKanji(btn, opt, item.ans);
+    optsEl.appendChild(btn);
+  });
+
+  const prog = document.getElementById('kq-progress');
+  prog.innerHTML='';
+  kqList.forEach((_,i)=>{
+    const dot = document.createElement('div');
+    dot.className='kq-dot'+(i===kqIdx?' active':'')+(i<kqIdx?(kqResults[i]?' done-correct':' done-wrong'):'');
+    prog.appendChild(dot);
+  });
+}
+
+function pickKanji(btn, sel, ans){
+  document.querySelectorAll('.kq-opt').forEach(b=>b.disabled=true);
+  const fb = document.getElementById('kq-feedback');
+  if(sel===ans){
+    btn.classList.add('correct'); kqScore2+=10;
+    fb.textContent='✅ Benar! +10 poin'; fb.style.color='#2e7d32';
+    kqResults.push(true);
+  } else {
+    btn.classList.add('wrong');
+    document.querySelectorAll('.kq-opt').forEach(b=>{ if(b.textContent===ans) b.classList.add('correct'); });
+    fb.textContent=`❌ Salah! Arti: ${ans}`; fb.style.color='#c62828';
+    kqResults.push(false);
+  }
+  document.getElementById('kq-score2').textContent=`Skor: ${kqScore2}`;
+  setTimeout(()=>{
+    kqIdx++;
+    if(kqIdx>=kqList.length) endKanji();
+    else loadKanji();
+  }, 1200);
+}
+
+function endKanji(){
+  document.getElementById('kq-game').style.display='none';
+  document.getElementById('kq-result').style.display='block';
+  const pct = Math.round(kqScore2/(kqList.length*10)*100);
+  let em,ti,ms;
+  if(pct>=80){ em='🏆'; ti='Master Kanji!'; ms='Luar biasa! Kamu sangat hafal kanji-kanji penting Jepang. Bisa langsung terbang ke Tokyo dan membaca papan nama!' ; }
+  else if(pct>=50){ em='🎌'; ti='Bagus Juga!'; ms='Kamu sudah mengenal banyak kanji! Latihan lebih banyak dan kamu bisa membaca papan nama di seluruh Jepang.'; }
+  else{ em='📚'; ti='Terus Berlatih!'; ms='Kanji memang sulit! Tapi dengan latihan rutin setiap hari, kamu pasti bisa hafal semuanya. Ganbatte!'; }
+  document.getElementById('kq-res-emoji').textContent=em;
+  document.getElementById('kq-res-title').textContent=ti;
+  document.getElementById('kq-res-msg').textContent=ms;
+  document.getElementById('kq-res-score').textContent=`${kqScore2}/${kqList.length*10}`;
+}
+
+function restartKanji(){
+  document.getElementById('kq-start').style.display='block';
+  document.getElementById('kq-game').style.display='none';
+  document.getElementById('kq-result').style.display='none';
+}
+
+/* ════════════════════════
+   WORD SCRAMBLE
+════════════════════════ */
+const wordBank = [
+  { word:'SAKOKU', scramble:'UKAKOS', clue:'Kebijakan isolasi total Jepang selama 250 tahun di era Tokugawa — menutup diri dari dunia luar' },
+  { word:'BUSHIDO', scramble:'IBSDOHU', clue:'Kode etik para samurai Jepang: keberanian, kehormatan, kesetiaan, keadilan' },
+  { word:'KAMIKAZE', scramble:'IKZAKAME', clue:'"Angin Dewa" — menghancurkan armada Mongol, lalu nama pilot bunuh diri PD2' },
+  { word:'SHOGUN', scramble:'HOSGNU', clue:'Pemimpin militer tertinggi yang lebih berkuasa dari kaisar selama berabad-abad' },
+  { word:'SAMURAI', scramble:'UMASIAR', clue:'Kelas prajurit bangsawan yang memegang katana dan mengikuti kode Bushido' },
+  { word:'TSUNAMI', scramble:'NASITUM', clue:'Bencana gelombang laut dahsyat yang sering melanda Jepang akibat gempa bumi' },
+  { word:'KIMONO', scramble:'OMIKNO', clue:'Pakaian tradisional Jepang yang masih dipakai saat festival dan upacara penting' },
+  { word:'KAIZEN', scramble:'NAIKZE', clue:'Filosofi bisnis Jepang: perbaikan terus-menerus (prinsip produksi Toyota global)' },
+];
+
+let wgWords=[], wgIdx=0, wgScore2=0, wgLives=3;
+
+function startWordGame(){
+  wgWords=shuffle([...wordBank]); wgIdx=0; wgScore2=0; wgLives=3;
+  document.getElementById('wg-start').style.display='none';
+  document.getElementById('wg-play').style.display='block';
+  document.getElementById('wg-result').style.display='none';
+  loadWord();
+}
+
+function loadWord(){
+  const w = wgWords[wgIdx];
+  document.getElementById('wg-current').textContent=`${wgIdx+1}/${wgWords.length}`;
+  document.getElementById('wg-score').textContent=wgScore2;
+  document.getElementById('wg-lives').textContent='❤️'.repeat(Math.max(0,wgLives))+'🖤'.repeat(3-Math.max(0,wgLives));
+  document.getElementById('wg-scrambled').textContent=w.scramble;
+  document.getElementById('wg-clue').textContent=`💡 ${w.clue}`;
+  document.getElementById('wg-feedback').textContent='';
+  document.getElementById('wg-feedback').style.color='';
+  document.getElementById('wg-answer').value='';
+
+  const tilesEl=document.getElementById('wg-tiles');
+  tilesEl.innerHTML='';
+  [...w.scramble].forEach(l=>{
+    const t=document.createElement('div');
+    t.className='wg-tile'; t.textContent=l;
+    t.onclick=()=>{
+      if(!t.classList.contains('used')){
+        document.getElementById('wg-answer').value+=l;
+        t.classList.add('used');
+      }
+    };
+    tilesEl.appendChild(t);
+  });
+}
+
+function checkWord(){
+  const ans = document.getElementById('wg-answer').value.toUpperCase().trim();
+  const correct = wgWords[wgIdx].word;
+  const fb = document.getElementById('wg-feedback');
+  if(ans===correct){
+    fb.textContent='✅ BENAR! +10 Poin 🎉'; fb.style.color='#2e7d32';
+    wgScore2+=10;
+    setTimeout(()=>{ wgIdx++; wgLives=3; if(wgIdx>=wgWords.length) endWord(); else loadWord(); }, 1000);
+  } else {
+    wgLives--;
+    document.getElementById('wg-lives').textContent='❤️'.repeat(Math.max(0,wgLives))+'🖤'.repeat(3-Math.max(0,wgLives));
+    if(wgLives<=0){
+      fb.textContent=`💀 Nyawa habis! Jawaban: ${correct}`; fb.style.color='#c62828';
+      setTimeout(()=>{ wgIdx++; wgLives=3; if(wgIdx>=wgWords.length) endWord(); else loadWord(); }, 1800);
+    } else {
+      fb.textContent=`❌ Coba lagi! (Petunjuk: dimulai "${correct[0]}")`; fb.style.color='#c62828';
+    }
+    document.getElementById('wg-answer').value='';
+    document.querySelectorAll('.wg-tile').forEach(t=>t.classList.remove('used'));
+  }
+}
+
+function skipWord(){
+  const fb=document.getElementById('wg-feedback');
+  fb.textContent=`⏭ Dilewati! Jawaban: ${wgWords[wgIdx].word}`; fb.style.color='var(--gold)';
+  setTimeout(()=>{ wgIdx++; wgLives=3; if(wgIdx>=wgWords.length) endWord(); else loadWord(); }, 1400);
+}
+
+function endWord(){
+  document.getElementById('wg-play').style.display='none';
+  document.getElementById('wg-result').style.display='block';
+  const total=wgWords.length*10;
+  const pct=Math.round(wgScore2/total*100);
+  document.getElementById('wg-res-score').textContent=`${wgScore2}/${total}`;
+  let em,ti,ms;
+  if(pct>=80){ em='🏆'; ti='Legenda Kata!'; ms='Kosakata Jepangmu luar biasa! Semua kata kunci berhasil disusun dengan sempurna. Kamu benar-benar paham istilah sejarah Jepang!'; }
+  else if(pct>=50){ em='🎌'; ti='Bagus!'; ms='Kamu punya pemahaman yang baik tentang istilah-istilah penting Jepang! Terus asah kosakatamu.'; }
+  else{ em='📚'; ti='Terus Berlatih!'; ms='Pelajari lagi istilah-istilah kunci dalam materi dan coba lagi! Kamu pasti bisa lebih baik.'; }
+  document.getElementById('wg-res-emoji').textContent=em;
+  document.getElementById('wg-res-title').textContent=ti;
+  document.getElementById('wg-res-msg').textContent=ms;
+}
+
+function restartWord(){
+  document.getElementById('wg-start').style.display='block';
+  document.getElementById('wg-play').style.display='none';
+  document.getElementById('wg-result').style.display='none';
+}
+
+/* ── IMG UPLOAD (map gallery) ── */
+function imgUpload(input){
+  var file=input.files[0];
+  if(!file) return;
+  var box=input.closest('.img-box');
+  var img=box.querySelector('img');
+  var ph=box.querySelector('.img-box-placeholder');
+  var reader=new FileReader();
+  reader.onload=function(e){
+    img.src=e.target.result;
+    img.style.display='block';
+    if(ph) ph.style.display='none';
+    box.style.cursor='default';
+  };
+  reader.readAsDataURL(file);
+}
+</script>
+</body>
+</html>
